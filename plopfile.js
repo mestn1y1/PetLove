@@ -12,12 +12,13 @@ export default function (plop) {
       {
         type: "add",
         path: "src/components/{{pascalCase name}}/{{pascalCase name}}.jsx",
-        templateFile: "plop-templates/Component.hbs", // Указываем .jsx шаблон
+        templateFile: "plop-templates/Component.hbs",
+        data: { noEscape: true },
       },
       {
         type: "add",
         path: "src/components/{{pascalCase name}}/{{pascalCase name}}.module.css",
-        templateFile: "plop-templates/Component.module.hbs", // Если CSS всё-таки остаётся в hbs
+        templateFile: "plop-templates/Component.module.hbs",
       },
     ],
   });
