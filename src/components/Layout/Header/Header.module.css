@@ -1,1 +1,31 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.header {
+  padding: 28px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerHome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 76px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    width: 100%;
+  }
+  .logo {
+    width: 105px;
+    height: 28px;
+  }
+}

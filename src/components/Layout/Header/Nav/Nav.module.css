@@ -1,1 +1,28 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.burgerIcon {
+  width: 32px;
+  height: 32px;
+  fill: transparent;
+}
+
+.burgerIconBlack {
+  stroke: #262626;
+}
+
+.burgerIconWhite {
+  stroke: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .burgerIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .burgerIconBlack {
+    stroke: #262626;
+  }
+
+  .burgerIconWhite {
+    stroke: #fff;
+  }
+}

@@ -11,7 +11,6 @@ export default function Layout() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      navigate("/home");
     }, 5000);
 
     return () => clearTimeout(timer);
@@ -19,10 +18,7 @@ export default function Layout() {
   return (
     <>
       {!loading && <Header />}
-      <main>
-        {loading && <SplashScreen />}
-        <Outlet />
-      </main>
+      <main>{loading ? <SplashScreen /> : <Outlet />}</main>
     </>
   );
 }
