@@ -24,12 +24,18 @@ export default function Nav() {
           }`}
         />
       </button>
+
       <div className={`${css.burgerMenu} ${isMenuOpen ? css.open : ""}`}>
-        <button onClick={toggleMenu}>
+        <button onClick={toggleMenu} className={css.button}>
           <Icons iconName="close" className={css.iconClose} />
         </button>
         <UserNav />
         <AuthNav className="block lg:hidden" />
+      </div>
+
+      <div className="hidden lg:flex">
+        <UserNav />
+        <AuthNav className="block lg:block" />
       </div>
     </nav>
   );

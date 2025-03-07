@@ -1,6 +1,13 @@
-.burgerIcon {
+.button {
   width: 32px;
   height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.burgerIcon {
+  width: 24px;
+  height: 24px;
   fill: transparent;
 }
 
@@ -46,11 +53,15 @@
   right: 20px;
   fill: transparent;
   stroke: #262626;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 @media screen and (min-width: 768px) {
+  .burgerMenu {
+    width: 374px;
+  }
+
   .burgerIcon {
     width: 36px;
     height: 36px;

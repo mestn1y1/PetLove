@@ -49,6 +49,8 @@ section {
 @media screen and (min-width: 768px) {
   .titleWrap {
     height: 100%;
+    padding-left: 44px;
+    padding-right: 44px;
     padding-bottom: 44px;
   }
   .title {
@@ -63,5 +65,31 @@ section {
     font-size: 18px;
     width: 255px;
     margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .titleWrap {
+    height: 100%;
+    border-radius: 60px;
+    padding-left: 74px;
+    padding-right: 74px;
+    padding-bottom: 32px;
+    display: flex;
+  }
+  .title {
+    font-size: 90px;
+    padding-top: 178px;
+    line-height: 97%;
+    width: 760px;
+  }
+  .description {
+    padding-top: 264px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 122%;
+  }
+  .mainImg {
+    height: 520px;
   }
 }
