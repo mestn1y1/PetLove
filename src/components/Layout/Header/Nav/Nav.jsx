@@ -8,7 +8,7 @@ import AuthNav from "../AuthNav/AuthNav";
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === "/home";
+  const isHome = location.pathname === "/home" || location.pathname === "/";
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
