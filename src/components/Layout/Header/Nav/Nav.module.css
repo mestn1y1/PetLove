@@ -12,6 +12,43 @@
   stroke: #fff;
 }
 
+.burgerMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: #fff;
+  z-index: 999;
+  width: 218px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.burgerMenu.open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.iconClose {
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  fill: transparent;
+  stroke: #262626;
+  width: 32px;
+  height: 32px;
+}
+
 @media screen and (min-width: 768px) {
   .burgerIcon {
     width: 36px;

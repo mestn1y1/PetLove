@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 export default function Logo() {
   const location = useLocation();
-  const isHome = location.pathname === "/home";
+  const isHome = location.pathname === "/home" || location.pathname === "/";
   return (
     <Link
       to="/home"

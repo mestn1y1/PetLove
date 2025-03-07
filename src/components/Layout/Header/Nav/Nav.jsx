@@ -1,15 +1,22 @@
+import { useState } from "react";
 import { Icons } from "../../../Icons/Icons";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import UserNav from "../UserNav/UserNav";
 import css from "./Nav.module.css";
+import AuthNav from "../AuthNav/AuthNav";
 
 export default function Nav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/home";
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav>
-      <button className="lg:hidden">
+      <button className="lg:hidden" onClick={toggleMenu}>
         <Icons
           iconName="menu"
           className={`${css.burgerIcon} ${
@@ -17,20 +24,13 @@ export default function Nav() {
           }`}
         />
       </button>
-      <ul className={`${css.navList} hidden lg:flex`}>
-        <li className={css.navListItem}>
-          <NavLink>News</NavLink>
-        </li>
-        <li className={css.navListItem}>
-          <NavLink>Find Pet</NavLink>
-        </li>
-        <li className={css.navListItem}>
-          <NavLink>Our Friends</NavLink>
-        </li>
-        <li>
-          <UserNav />
-        </li>
-      </ul>
+      <div className={`${css.burgerMenu} ${isMenuOpen ? css.open : ""}`}>
+        <button onClick={toggleMenu}>
+          <Icons iconName="close" className={css.iconClose} />
+        </button>
+        <UserNav />
+        <AuthNav className="block lg:hidden" />
+      </div>
     </nav>
   );
 }

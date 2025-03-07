@@ -17,6 +17,7 @@ body {
   height: 100%;
   font-family: "Manrope", sans-serif;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 ul,
