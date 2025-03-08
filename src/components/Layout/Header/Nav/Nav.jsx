@@ -16,7 +16,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <button className="lg:hidden" onClick={toggleMenu}>
+      <button className={`${css.button} lg:hidden`} onClick={toggleMenu}>
         <Icons
           iconName="menu"
           className={`${css.burgerIcon} ${
@@ -29,8 +29,8 @@ export default function Nav() {
         <button onClick={toggleMenu} className={css.button}>
           <Icons iconName="close" className={css.iconClose} />
         </button>
-        <UserNav />
-        <AuthNav className="block lg:hidden" />
+        <UserNav onClick={toggleMenu} />
+        <AuthNav onClick={toggleMenu} className="block lg:hidden" />
       </div>
 
       <div className="hidden lg:flex">
