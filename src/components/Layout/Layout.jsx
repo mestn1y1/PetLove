@@ -2,19 +2,24 @@ import { useState, useEffect } from "react";
 import css from "./Layout.module.css";
 import Header from "./Header/Header";
 import SplashScreen from "../SplashScreen/SplashScreen";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(() => {
+    return sessionStorage.getItem("splashShown") ? false : true;
+  });
 
   useEffect(() => {
+    if (!loading) return;
+
     const timer = setTimeout(() => {
       setLoading(false);
+      sessionStorage.setItem("splashShown", "true");
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, [loading]);
+
   return (
     <>
       {!loading && <Header />}
