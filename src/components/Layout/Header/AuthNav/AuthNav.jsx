@@ -5,10 +5,14 @@ export default function AuthNav({ className = "", onClick }) {
   return (
     <ul className={`${css.authNavList} ${className}`.trim()}>
       <li className={css.authNavListItem}>
-        <NavLink onClick={onClick}>LOG IN</NavLink>
+        <NavLink to="/login" onClick={onClick}>
+          LOG IN
+        </NavLink>
       </li>
       <li className={css.authNavListItem}>
-        <NavLink onClick={onClick}>REGISTRATION</NavLink>
+        <NavLink to="/register" onClick={onClick}>
+          REGISTRATION
+        </NavLink>
       </li>
     </ul>
   );

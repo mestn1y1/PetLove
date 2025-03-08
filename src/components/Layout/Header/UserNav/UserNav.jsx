@@ -12,12 +12,12 @@ export default function UserNav({ className = "", onClick }) {
         </NavLink>
       </li>
       <li className={isHome ? css.navListItem : css.navListItemHeader}>
-        <NavLink to="/find-pet" onClick={onClick}>
+        <NavLink to="/notices" onClick={onClick}>
           Find Pet
         </NavLink>
       </li>
       <li className={isHome ? css.navListItem : css.navListItemHeader}>
-        <NavLink to="/our-friends" onClick={onClick}>
+        <NavLink to="/friends" onClick={onClick}>
           Our Friends
         </NavLink>
       </li>
