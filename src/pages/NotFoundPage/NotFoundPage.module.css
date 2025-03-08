@@ -1,1 +1,51 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f6b83d;
+  border-radius: 30px;
+  height: 712px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 120px;
+  line-height: 1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  position: relative;
+}
+.titleImg {
+  position: absolute;
+  bottom: -10px;
+  display: inline-block;
+  width: 109px;
+  height: 109px;
+  background: rgba(247, 195, 93, 0.6) url(/images/desc/cat_not_found.png)
+    center/contain no-repeat;
+  border-radius: 1000px;
+}
+.description {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.link {
+  border-radius: 30px;
+  padding: 12px 30px;
+  width: 150px;
+  height: 42px;
+  background: #fff4df;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+}
