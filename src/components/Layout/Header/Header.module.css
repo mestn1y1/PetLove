@@ -27,9 +27,13 @@
   .headerHome {
     padding-left: 64px;
     padding-right: 64px;
+    padding-top: 32px;
   }
   .header {
     width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
   }
   .logo {
     width: 105px;
@@ -41,5 +45,17 @@
   .headerHome {
     padding-left: 96px;
     padding-right: 96px;
+    padding-top: 32px;
+  }
+  .header {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
   }
 }

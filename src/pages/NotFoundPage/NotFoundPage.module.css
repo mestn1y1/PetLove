@@ -6,7 +6,6 @@
   background: #f6b83d;
   border-radius: 30px;
   height: 712px;
-  margin: 0 20px;
 }
 
 .title {
@@ -29,6 +28,13 @@
     center/contain no-repeat;
   border-radius: 1000px;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .titleImg {
+    background: rgba(247, 195, 93, 0.6) url(/images/desc/cat_not_found_x2.png)
+      center/contain no-repeat;
+  }
+}
 .description {
   font-weight: 700;
   font-size: 16px;
@@ -49,4 +55,42 @@
   line-height: 129%;
   letter-spacing: -0.03em;
   color: #f6b83d;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 32px;
+  }
+  .container {
+    height: 878px;
+  }
+  .titleImg {
+    width: 280px;
+    height: 280px;
+  }
+  .title {
+    font-size: 300px;
+    gap: 260px;
+    margin-bottom: 40px;
+  }
+  .description {
+    font-size: 24px;
+  }
+
+  .link {
+    font-size: 16px;
+    width: 162px;
+    height: 48px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  section {
+    padding-top: 0;
+  }
+  .container {
+    height: 84vh;
+  }
 }

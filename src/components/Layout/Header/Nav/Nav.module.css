@@ -87,4 +87,16 @@
   .buttonMenu {
     display: none;
   }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .navWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

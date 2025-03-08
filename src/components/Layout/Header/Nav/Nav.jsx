@@ -16,24 +16,26 @@ export default function Nav() {
 
   return (
     <nav>
-      <button className={css.buttonMenu} onClick={toggleMenu}>
-        <Icons
-          iconName="menu"
-          className={`${css.burgerIcon} ${
-            isHome ? css.burgerIconWhite : css.burgerIconBlack
-          }`}
-        />
-      </button>
-
-      <div className={`${css.burgerMenu} ${isMenuOpen ? css.open : ""}`}>
-        <button onClick={toggleMenu} className={css.button}>
-          <Icons iconName="close" className={css.iconClose} />
+      <div>
+        <button className={css.buttonMenu} onClick={toggleMenu}>
+          <Icons
+            iconName="menu"
+            className={`${css.burgerIcon} ${
+              isHome ? css.burgerIconWhite : css.burgerIconBlack
+            }`}
+          />
         </button>
-        <UserNav onClick={toggleMenu} />
-        <AuthNav onClick={toggleMenu} className="block lg:hidden" />
+
+        <div className={`${css.burgerMenu} ${isMenuOpen ? css.open : ""}`}>
+          <button onClick={toggleMenu} className={css.button}>
+            <Icons iconName="close" className={css.iconClose} />
+          </button>
+          <UserNav onClick={toggleMenu} />
+          <AuthNav onClick={toggleMenu} className="block lg:hidden" />
+        </div>
       </div>
 
-      <div className="hidden lg:flex">
+      <div className={`hidden lg:flex ${css.navWrapper}`}>
         <UserNav />
         <AuthNav className="block lg:block" />
       </div>

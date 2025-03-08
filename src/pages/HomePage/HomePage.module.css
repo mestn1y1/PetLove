@@ -1,6 +1,6 @@
 section {
-  padding: 0 20px;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 .titleWrap {
   width: 100%;
@@ -47,6 +47,12 @@ section {
   }
 }
 @media screen and (min-width: 768px) {
+  section {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+  }
   .titleWrap {
     height: 100%;
     padding-left: 44px;
@@ -72,8 +78,8 @@ section {
   .titleWrap {
     height: 48vh;
     border-radius: 60px;
-    padding-left: 74px;
-    padding-right: 74px;
+    padding-left: 64px;
+    padding-right: 64px;
     padding-bottom: 32px;
     display: flex;
   }
@@ -90,6 +96,6 @@ section {
     line-height: 122%;
   }
   .mainImg {
-    height: 50vh;
+    height: 49.5vh;
   }
 }

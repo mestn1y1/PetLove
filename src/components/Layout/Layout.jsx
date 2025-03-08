@@ -23,7 +23,9 @@ export default function Layout() {
   return (
     <>
       {!loading && <Header />}
-      <main>{loading ? <SplashScreen /> : <Outlet />}</main>
+      <main className={loading ? css.loading : css.loaded}>
+        {loading ? <SplashScreen /> : <Outlet />}
+      </main>
     </>
   );
 }
