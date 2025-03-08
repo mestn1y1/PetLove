@@ -5,6 +5,13 @@
   align-items: center;
   justify-content: center;
 }
+.buttonMenu {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .burgerIcon {
   width: 24px;
@@ -73,5 +80,11 @@
 
   .burgerIconWhite {
     stroke: #fff;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .buttonMenu {
+    display: none;
   }
 }

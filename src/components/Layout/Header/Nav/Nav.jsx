@@ -16,7 +16,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <button className={`${css.button} lg:hidden`} onClick={toggleMenu}>
+      <button className={css.buttonMenu} onClick={toggleMenu}>
         <Icons
           iconName="menu"
           className={`${css.burgerIcon} ${
