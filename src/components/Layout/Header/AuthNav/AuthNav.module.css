@@ -20,6 +20,10 @@
   color: #fff;
 }
 
+.authNavListItemOrange {
+  border: 1px solid #fff;
+}
+
 .authNavList .authNavListItem:nth-of-type(2) {
   background: #fff4df;
   color: #f6b83d;
