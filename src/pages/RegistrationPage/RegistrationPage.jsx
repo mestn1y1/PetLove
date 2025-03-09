@@ -16,7 +16,7 @@ export default function RegistrationPage() {
           media="(min-width: 1280px)"
           srcSet="/images/desc/cat.png 1x, /images/desc/cat_x2.png 2x"
         />
-        <img src="/images/desc/cat.png" alt="Dog" className={css.img} />
+        <img src="/images/desc/cat.png" alt="Cat" className={css.img} />
       </picture>
       <RegistrationForm />
     </section>
