@@ -1,7 +1,7 @@
 import css from "./HomePage.module.css";
 export default function HomePage() {
   return (
-    <section>
+    <section className={css.homePage}>
       <div className={css.titleWrap}>
         <h1 className={css.title}>
           Take good <span className={css.colorText}>care</span> of your small
@@ -25,7 +25,11 @@ export default function HomePage() {
           media="(min-width: 1280px)"
           srcSet="/images/desc/home.png 1x, /images/desc/home_x2.png 2x"
         />
-        <img src="/images/desc/home.png" alt="Human with dog" className={css.mainImg} />
+        <img
+          src="/images/desc/home.png"
+          alt="Human with dog"
+          className={css.mainImg}
+        />
       </picture>
     </section>
   );
