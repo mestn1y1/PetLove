@@ -77,6 +77,18 @@
   align-items: center;
 }
 
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.success {
+  position: absolute;
+  color: #08aa83;
+  font-size: 10px;
+  padding: 0 10px;
+  top: 36px;
+}
 .toggleButton {
   position: absolute;
   right: 16px;
@@ -89,6 +101,43 @@
 }
 .toggleButton:hover {
   color: #333;
+}
+
+.icon {
+  display: block;
+  width: 18px;
+  position: absolute;
+  right: 16px;
+  top: 40%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+.iconWithButton {
+  display: block;
+  width: 18px;
+  position: absolute;
+  right: 40px;
+  transform: translateY(-50%);
+  top: 40%;
+  font-size: 18px;
+}
+.errorIcon {
+  color: #ef2447;
+}
+
+.successIcon {
+  color: #08aa83;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  padding: 0 10px;
+  width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -115,6 +164,19 @@
   .input {
     margin-bottom: 16px;
     padding: 16px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
+  .success {
+    font-size: 12px;
+  }
+  .iconWithButton {
+    top: 36%;
+  }
+  .icon {
+    top: 36%;
   }
 }
 
