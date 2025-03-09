@@ -3,7 +3,7 @@ import LoginForm from "../../components/Form/LoginForm/LoginForm";
 import css from "./LoginPage.module.css";
 export default function LoginPage() {
   return (
-    <section>
+    <section className={css.containerLoginPage}>
       <picture>
         <source
           media="(max-width: 767px)"
