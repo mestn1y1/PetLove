@@ -6,7 +6,7 @@ export default function RegistrationPage() {
       <picture>
         <source
           media="(max-width: 767px)"
-          srcSet="/images/mob/cat_mob.png 1x, /images/mob/dog_cat_x2.png 2x"
+          srcSet="/images/mob/cat_mob.png 1x, /images/mob/cat_mob_x2.png 2x"
         />
         <source
           media="(max-width: 1279px)"
