@@ -17,7 +17,7 @@ export default function Loader() {
   return (
     <div className={css.container}>
       <img src="/images/loader.png" alt="loader" className={css.loaderImg} />
-      <span>{progress}%</span>
+      <span className={css.progress}>{progress}%</span>
     </div>
   );
 }
