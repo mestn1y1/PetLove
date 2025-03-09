@@ -192,6 +192,9 @@ export default function LoginForm() {
               component="div"
               className={css.error}
             />
+            {touched.password && !errors.password && (
+              <div className={css.success}>Password is secure</div>
+            )}
           </div>
 
           <Button text="Log in" className={css.buttonSubmit} type="submit" />

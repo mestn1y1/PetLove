@@ -48,9 +48,11 @@
   color: rgba(38, 38, 38, 0.5);
 }
 .success {
+  position: absolute;
   color: #08aa83;
-  font-size: 14px;
-  margin-top: 4px;
+  font-size: 10px;
+  padding: 0 10px;
+  top: 40px;
 }
 
 .question {
@@ -159,6 +161,15 @@
   }
   .error {
     font-size: 12px;
+  }
+  .success {
+    font-size: 12px;
+  }
+  .iconWithButton {
+    top: 36%;
+  }
+  .icon {
+    top: 36%;
   }
 }
 
