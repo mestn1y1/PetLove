@@ -25,7 +25,7 @@ export default function HomePage() {
           media="(min-width: 1280px)"
           srcSet="/images/desc/home.png 1x, /images/desc/home_x2.png 2x"
         />
-        <img src="/images/desc/home.png" alt="Logo" className={css.mainImg} />
+        <img src="/images/desc/home.png" alt="Human with dog" className={css.mainImg} />
       </picture>
     </section>
   );

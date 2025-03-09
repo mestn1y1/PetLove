@@ -1,4 +1,5 @@
+import { Button } from "../Button/Button";
 import css from "./LogOutBtn.module.css";
 export default function LogOutBtn() {
-  return <div>LogOutBtn Component</div>;
+  return <Button text="Log out" />;
 }
