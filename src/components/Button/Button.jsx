@@ -4,7 +4,7 @@ import classNames from "classnames";
 export const Button = ({ text, onClick, className, type, children }) => {
   return (
     <button
-      className={classNames(className, css.btn)}
+      className={classNames(css.btn, className)}
       onClick={onClick}
       type={type}
     >

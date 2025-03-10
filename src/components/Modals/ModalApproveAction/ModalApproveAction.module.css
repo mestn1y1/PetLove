@@ -1,1 +1,84 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.modalContainer {
+  width: 300px;
+  height: 270px;
+  background: #fff;
+  border-radius: 30px;
+  padding: 40px 28px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.closeBtnIcon {
+  stroke: #262626;
+  stroke-width: 2px;
+  width: 24px;
+  height: 24px;
+}
+.imgWrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background: #fff4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.img {
+  width: 44px;
+  height: 44px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  color: #262626;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.btnWrap {
+  display: flex;
+
+  gap: 8px;
+}
+.yesBtn,
+.cancelBtn {
+  padding: 12px;
+  height: 42px;
+  width: 100%;
+}
+.cancelBtn {
+  background: rgba(38, 38, 38, 0.05);
+  color: #262626;
+}
+
+@media screen and (min-width: 375px) {
+  .modalContainer {
+    width: 335px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .modalContainer {
+    width: 448px;
+    height: 364px;
+    padding: 80px;
+  }
+  .yesBtn,
+  .cancelBtn {
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 125%;
+  }
+  .title {
+    font-size: 24px;
+  }
+}

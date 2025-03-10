@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 export default function Nav() {
-  const auth = false;
+  const auth = true;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/home" || location.pathname === "/";
@@ -20,7 +20,7 @@ export default function Nav() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav>
+    <nav className={css.nav}>
       <ul className={css.navListDesc}>
         {navLinks.map(({ to, label }) => (
           <li
@@ -31,6 +31,9 @@ export default function Nav() {
           </li>
         ))}
       </ul>
+      <div className={`hidden md:flex ${css.navWrapper}`}>
+        {auth ? <UserNav /> : <AuthNav className="block md:block" />}
+      </div>
 
       <button className={css.buttonMenu} onClick={toggleMenu}>
         <Icons
@@ -73,10 +76,6 @@ export default function Nav() {
           isHome={isHome}
           className="block lg:hidden"
         />
-      </div>
-
-      <div className={`hidden lg:flex ${css.navWrapper}`}>
-        {auth ? <UserNav /> : <AuthNav className="block lg:block" />}
       </div>
     </nav>
   );

@@ -1,4 +1,4 @@
-import css from "./Modal.module.css";
+import css from "./ModalWrap.module.css";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");

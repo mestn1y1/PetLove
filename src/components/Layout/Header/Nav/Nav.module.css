@@ -105,6 +105,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+    align-items: center;
+  }
   .burgerMenu {
     width: 374px;
   }

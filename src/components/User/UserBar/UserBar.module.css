@@ -1,1 +1,36 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.wrapUserBar {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  gap: 8px;
+}
+
+.userLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #fff4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userIcon {
+  width: 20px;
+  height: 20px;
+  color: #f6b83d;
+}
+.userName {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .userName {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #262626;
+  }
+}
