@@ -1,3 +1,9 @@
+@media screen and (min-width: 768px) {
+  .wrapImagePet {
+    position: relative;
+  }
+}
+
 @media screen and (min-width: 1280px) {
   .containerLoginPage {
     display: flex;
