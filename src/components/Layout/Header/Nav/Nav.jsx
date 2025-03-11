@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Icons } from "../../../Icons/Icons";
 import { useLocation, NavLink } from "react-router-dom";
 import css from "./Nav.module.css";
 import AuthNav from "../AuthNav/AuthNav";
 import UserNav from "../UserNav/UserNav";
+import { useAuth } from "../../../../hooks/useAuth";
 
 const navLinks = [
   { to: "/news", label: "News" },
@@ -12,12 +13,30 @@ const navLinks = [
 ];
 
 export default function Nav() {
-  const auth = true;
+  const { isLoggedIn } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/home" || location.pathname === "/";
+  const menuRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav className={css.nav}>
@@ -31,10 +50,16 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <div className={`hidden md:flex ${css.navWrapper}`}>
-        {auth ? <UserNav /> : <AuthNav className="block md:block" />}
-      </div>
 
+      {isLoggedIn && <UserNav isHome={isHome} />}
+
+      <div
+        className={`hidden md:flex ${
+          isHome ? css.hideOnHome : css.showOnOtherPages
+        }`}
+      >
+        <AuthNav isHome={isHome} className="block lg:block" />
+      </div>
       <button className={css.buttonMenu} onClick={toggleMenu}>
         <Icons
           iconName="menu"
@@ -45,6 +70,7 @@ export default function Nav() {
       </button>
 
       <div
+        ref={menuRef}
         className={`${css.burgerMenu} ${isMenuOpen ? css.open : ""} ${
           !isHome ? css.burgerMenuOrange : ""
         }`}

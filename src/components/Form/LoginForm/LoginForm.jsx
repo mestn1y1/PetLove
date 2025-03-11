@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 import { FiCheck } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { logIn } from "../../../redux/auth/operations";
 
 import Title from "../../Title/Title";
 import { Button } from "../../Button/Button";
@@ -20,21 +22,30 @@ const validationSchema = Yup.object({
 });
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleSubmit = (values) => {
-    console.log("Form data submitted:", values);
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(logIn(values));
+      actions.resetForm();
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+
+    actions.resetForm();
   };
 
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        handleSubmit(values);
+      onSubmit={(values, actions) => {
+        handleSubmit(values, actions);
       }}
     >
       {({ errors, touched }) => (

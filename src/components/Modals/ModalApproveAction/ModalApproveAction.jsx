@@ -2,7 +2,7 @@ import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
 import css from "./ModalApproveAction.module.css";
 
-export default function ModalApproveAction({ handleClose }) {
+export default function ModalApproveAction({ handleClose, handleLogout }) {
   return (
     <div className={css.modalContainer}>
       <button className={css.closeBtn} onClick={handleClose}>
@@ -13,7 +13,7 @@ export default function ModalApproveAction({ handleClose }) {
       </div>
       <h2 className={css.title}>Already leaving?</h2>
       <div className={css.btnWrap}>
-        <Button text="Yes" onClick={handleClose} className={css.yesBtn} />
+        <Button text="Yes" onClick={handleLogout} className={css.yesBtn} />
         <Button text="Cancel" onClick={handleClose} className={css.cancelBtn} />
       </div>
     </div>

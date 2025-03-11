@@ -1,3 +1,15 @@
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.hideOnHome {
+  display: none;
+}
+.showOnOtherPages {
+  display: none;
+}
+
 .button {
   width: 32px;
   height: 32px;
@@ -105,9 +117,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .showOnOtherPages {
+    display: block;
+  }
   .nav {
     display: flex;
     align-items: center;
+    gap: 16px;
   }
   .burgerMenu {
     width: 374px;
@@ -132,21 +148,25 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
+  .hideOnHome {
+    display: block;
+  }
+
   .buttonMenu {
     display: none;
   }
 
-  nav {
-    display: flex;
-    align-items: center;
+  .nav {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .navListDesc {
     display: flex;
     flex-direction: row;
-    margin-right: 167px;
     gap: 10px;
+    margin-left: 35%;
   }
 
   .navListItem {

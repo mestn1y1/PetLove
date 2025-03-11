@@ -4,9 +4,9 @@ import css from "./UserNav.module.css";
 
 export default function UserNav({ isHome }) {
   return (
-    <>
+    <div className={css.wrapUserNav}>
       <LogOutBtn isHome={isHome} />
-      <UserBar />
-    </>
+      <UserBar isHome={isHome} />
+    </div>
   );
 }
