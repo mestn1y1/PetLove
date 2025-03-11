@@ -51,15 +51,17 @@ export default function Nav() {
         ))}
       </ul>
 
-      {isLoggedIn && <UserNav isHome={isHome} />}
-
-      <div
-        className={`hidden md:flex ${
-          isHome ? css.hideOnHome : css.showOnOtherPages
-        }`}
-      >
-        <AuthNav isHome={isHome} className="block lg:block" />
-      </div>
+      {isLoggedIn ? (
+        <UserNav isHome={isHome} />
+      ) : (
+        <div
+          className={`hidden md:flex ${
+            isHome ? css.hideOnHome : css.showOnOtherPages
+          }`}
+        >
+          <AuthNav isHome={isHome} className="block lg:block" />
+        </div>
+      )}
       <button className={css.buttonMenu} onClick={toggleMenu}>
         <Icons
           iconName="menu"

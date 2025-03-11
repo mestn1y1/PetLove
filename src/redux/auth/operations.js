@@ -33,7 +33,7 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post("/users/signin", credentials);
       setAuthHeader(res.data.token);
-      toast.success(`Welcome ${res.data.name}`);
+      toast.success(`Welcome back ${res.data.name}`);
       return res.data;
     } catch (error) {
       toast.error("ERROR, Invalid data");

@@ -1,8 +1,9 @@
-import SplashScreen from "../SplashScreen/SplashScreen";
 import { lazy, useEffect, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { refreshUser } from "../../redux/auth/operations";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Layout from "../Layout/Layout";
 import { RestrictedRoute } from "../RestrictedRoute/RestrictedRoute";
 import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
@@ -20,7 +21,14 @@ const Profile = lazy(() => import("../../pages/ProfilePage/ProfilePage"));
 const AddPet = lazy(() => import("../../pages/AddPetPage/AddPetPage"));
 
 import css from "./App.module.css";
+
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
@@ -62,10 +70,21 @@ export default function App() {
               }
             />
             <Route path="*" element={<NotFound />} />
-            <Route />
           </Route>
         </Routes>
       </Suspense>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }
