@@ -1,0 +1,52 @@
+.radioGroup {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
+}
+
+.radioInput {
+  display: none;
+}
+
+.iconWrap {
+  display: inline-block;
+}
+
+.icons {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  padding: 6px;
+}
+
+.female {
+  background: rgba(244, 63, 94, 0.1);
+}
+
+.male {
+  background: rgba(84, 173, 255, 0.1);
+}
+
+.multiple {
+  background: #fff4df;
+}
+
+.activeFemale {
+  background-color: #f43f5e;
+}
+
+.activeMale {
+  background-color: #54adff;
+}
+
+.activeMultiple {
+  background-color: #f6b83d;
+}
+
+@media screen and (min-width: 768px) {
+  .icons {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+}

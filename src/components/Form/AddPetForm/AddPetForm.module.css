@@ -1,1 +1,47 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.addPetForm {
+  width: 100%;
+  border-radius: 30px;
+  padding: 20px;
+}
+.inputPhoto {
+  width: 280px;
+}
+.wrapTitle {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.subTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  color: rgba(43, 43, 42, 0.4);
+}
+
+.input {
+  border-radius: 30px;
+  padding: 9px 20px 9px 10px;
+  width: 170px;
+  height: 36px;
+  border: 1px solid rgba(38, 38, 38, 0.15);
+}
+
+@media screen and (min-width: 768px) {
+  .addPetForm {
+    margin: 0 auto;
+    width: 704px;
+    padding: 40px 126px;
+  }
+  .subTitle {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .addPetForm {
+    margin: 0;
+    width: 592px;
+    padding: 60px;
+  }
+}

@@ -1,6 +1,5 @@
 import css from "./LoginForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 import { FiCheck } from "react-icons/fi";
@@ -9,16 +8,8 @@ import { logIn } from "../../../redux/auth/operations";
 import Title from "../../Title/Title";
 import { Button } from "../../Button/Button";
 import { Link } from "react-router-dom";
+import { validationSchemaLogin } from "../../../validationSchemas/validationSchemas";
 import { useState } from "react";
-
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
-});
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -42,7 +33,7 @@ export default function LoginForm() {
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
-      validationSchema={validationSchema}
+      validationSchema={validationSchemaLogin}
       onSubmit={(values, actions) => {
         handleSubmit(values, actions);
       }}

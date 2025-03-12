@@ -6,7 +6,11 @@
   color: #262626;
   text-align: left;
 }
-
+@media screen and (min-width: 320px) and (max-width: 374px) {
+  .title {
+    font-size: 21px;
+  }
+}
 @media screen and (min-width: 768px) {
   .title {
     font-size: 54px;

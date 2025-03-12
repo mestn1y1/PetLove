@@ -15,7 +15,7 @@ export default function LoginPage() {
             tablet: "/images/tab/dog_tab.png 1x, /images/tab/dog_tab_x2.png 2x",
             desktop: "/images/desc/dog.png 1x, /images/desc/dog_x2.png 2x",
           }}
-          alt="Cat"
+          alt="Dog"
           className={css.img}
         />
         <PetInfo img={avatar} name={name} desc={description} date={birthday} />
