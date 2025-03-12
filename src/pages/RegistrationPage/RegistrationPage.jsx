@@ -1,5 +1,6 @@
 import RegistrationForm from "../../components/Form/RegistrationForm/RegistrationForm";
 import pets from "../../Pets/pets";
+import PetInfo from "../../components/Pet/PetInfo/PetInfo";
 import PetBlock from "../../components/Pet/PetBlock/PetBlock";
 import css from "./RegistrationPage.module.css";
 export default function RegistrationPage() {
@@ -7,22 +8,16 @@ export default function RegistrationPage() {
   return (
     <section className={css.containerRegistrationPage}>
       <div className={css.wrapImagePet}>
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcSet="/images/mob/cat_mob.png 1x, /images/mob/cat_mob_x2.png 2x"
-          />
-          <source
-            media="(max-width: 1279px)"
-            srcSet="/images/tab/cat_tab.png 1x, /images/tab/cat_tab_x2.png 2x"
-          />
-          <source
-            media="(min-width: 1280px)"
-            srcSet="/images/desc/cat.png 1x, /images/desc/cat_x2.png 2x"
-          />
-          <img src="/images/desc/cat.png" alt="Cat" className={css.img} />
-        </picture>
-        <PetBlock img={avatar} name={name} desc={description} date={birthday} />
+        <PetBlock
+          images={{
+            mobile: "/images/mob/cat_mob.png 1x, /images/mob/cat_mob_x2.png 2x",
+            tablet: "/images/tab/cat_tab.png 1x, /images/tab/cat_tab_x2.png 2x",
+            desktop: "/images/desc/cat.png 1x, /images/desc/cat_x2.png 2x",
+          }}
+          alt="Cat"
+          className={css.img}
+        />
+        <PetInfo img={avatar} name={name} desc={description} date={birthday} />
       </div>
 
       <RegistrationForm />

@@ -1,20 +1,12 @@
 import css from "./PetBlock.module.css";
 
-export default function PetBlock({ img, name, desc, date }) {
+export default function PetBlock({ images, alt, className }) {
   return (
-    <div className={css.petBlockContainer}>
-      <div className={css.imgWrap}>
-        <img src={img} alt={name} className={css.petImage} />
-      </div>
-      <div>
-        <div className={css.details}>
-          <h2 className={css.name}>{name}</h2>
-          <p className={css.detailsText}>
-            Birthday: <span className={css.date}>{date}</span>
-          </p>
-        </div>
-        <p className={css.description}>{desc}</p>
-      </div>
-    </div>
+    <picture>
+      <source media="(max-width: 767px)" srcSet={images.mobile} />
+      <source media="(max-width: 1279px)" srcSet={images.tablet} />
+      <source media="(min-width: 1280px)" srcSet={images.desktop} />
+      <img src={images.desktop.split(",")[0]} alt={alt} className={className} />
+    </picture>
   );
 }
