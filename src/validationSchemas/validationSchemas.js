@@ -5,10 +5,8 @@ export const validationSchemaAddPet = Yup.object({
   title: Yup.string().required("Required"),
   imgURL: Yup.string().required("Required"),
   species: Yup.string().required("Required"),
-  birthday: Yup.string()
-    .matches(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format (YYYY-MM-DD)")
-    .required("Required"),
-  sex: Yup.string().required("Выберите пол"),
+  birthday: Yup.date().typeError("Invalid date").required("Required"),
+  sex: Yup.string().required("Select gender"),
 });
 
 export const validationSchemaLogin = Yup.object({
@@ -28,7 +26,7 @@ export const validationSchemaRegistration = Yup.object({
     .email("Invalid email address")
     .required("Email is required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
+    .min(7, "Password must be at least 6 characters")
     .required("Password is required"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")

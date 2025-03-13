@@ -4,7 +4,10 @@ import Title from "../../Title/Title";
 import GenderInput from "./GenderInput/GenderInput";
 import SpeciesSelect from "./SpeciesSelect/SpeciesSelect";
 import PetAvatar from "./PetAvatar/PetAvatar";
+import FileUploadInput from "./FileUploadInput/FileUploadInput";
 import { validationSchemaAddPet } from "../../../validationSchemas/validationSchemas";
+import { Button } from "../../Button/Button";
+import DateInput from "./DateInput/DateInput";
 
 export default function AddPetForm() {
   const initialValues = {
@@ -16,33 +19,8 @@ export default function AddPetForm() {
     sex: "",
   };
 
-  const cloudURL = import.meta.env.VITE_CLOUDINARY_URL;
-  const preset_key = import.meta.env.VITE_UPLOAD_PRESET;
-
   const onSubmit = (values) => {
     console.log("Данные формы:", values);
-  };
-
-  const handleFileChange = async (event, setFieldValue) => {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", preset_key);
-
-    try {
-      const response = await fetch(cloudURL, {
-        method: "POST",
-        body: formData,
-      });
-      if (!response.ok) throw new Error();
-
-      const data = await response.json();
-      setFieldValue("imgURL", data.secure_url);
-    } catch (error) {
-      console.error(error.message);
-    }
   };
 
   return (
@@ -62,46 +40,50 @@ export default function AddPetForm() {
             <GenderInput name="sex" value={values.sex} />
             <ErrorMessage name="sex" component="div" />
           </div>
+          <PetAvatar imgUrl={values.imgURL && values.imgURL} />
 
+          <FileUploadInput
+            name="imgURL"
+            setFieldValue={setFieldValue}
+            value={values.imgURL}
+          />
           <div>
-            <PetAvatar imgUrl={values.imgURL && values.imgURL} />
-          </div>
-          <div>
-            <Field type="text" name="name" placeholder="Name" />
-            <ErrorMessage name="name" component="div" />
-          </div>
-
-          <div>
-            <Field type="text" name="title" placeholder="Title" />
+            <Field
+              type="text"
+              name="title"
+              placeholder="Title"
+              className={css.inputText}
+            />
             <ErrorMessage name="title" component="div" />
           </div>
-
           <div>
-            <input
-              type="file"
-              name="imgURL"
-              accept="image/*"
-              onChange={(event) => handleFileChange(event, setFieldValue)}
+            <Field
+              type="text"
+              name="name"
+              placeholder="Pet’s Name"
+              className={css.inputText}
             />
-            <ErrorMessage name="imgURL" component="div" />
+            <ErrorMessage name="name" component="div" />
+          </div>
+          <div className={css.lastInputBlockWraper}>
+            <div>
+              <DateInput
+                name="birthday"
+                value={values.birthday}
+                setFieldValue={setFieldValue}
+              />
+              <ErrorMessage name="birthday" component="div" />
+            </div>
+            <div>
+              <SpeciesSelect name="species" />
+              <ErrorMessage name="species" component="div" />
+            </div>
           </div>
 
-          <div>
-            <Field type="text" name="imgURL" placeholder="Image URL " />
-            <ErrorMessage name="imgURL" component="div" />
+          <div className={css.btnWrap}>
+            <Button text="Back" className={css.btnBack} />
+            <Button text="Submit" type="submit" className={css.btnSubmit} />
           </div>
-
-          <div>
-            <SpeciesSelect name="species" />
-            <ErrorMessage name="species" component="div" />
-          </div>
-
-          <div>
-            <Field type="date" name="birthday" />
-            <ErrorMessage name="birthday" component="div" />
-          </div>
-
-          <button type="submit">Submit</button>
         </Form>
       )}
     </Formik>

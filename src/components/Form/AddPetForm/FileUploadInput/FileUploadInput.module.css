@@ -1,0 +1,90 @@
+.wrapInput {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.inputText {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 116px;
+  height: 36px;
+}
+.inputText::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.hiddenInput {
+  display: none;
+}
+.fileInputWrapper {
+  display: flex;
+  align-items: center;
+}
+.customFileUpload {
+  display: flex;
+  gap: 6px;
+  background: #fff4df;
+  border-radius: 30px;
+  padding: 10px;
+  width: 117px;
+  height: 36px;
+}
+.customFileUpload span {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+
+.uploadIcon {
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 375px) {
+  .inputText {
+    width: 170px;
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .customFileUpload span {
+    font-size: 14px;
+  }
+
+  .uploadIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .inputText {
+    width: 300px;
+    height: 42px;
+  }
+
+  .inputText::placeholder {
+    font-size: 16px;
+  }
+  .customFileUpload {
+    border-radius: 30px;
+    padding: 12px 16px;
+    width: 146px;
+    height: 42px;
+  }
+  .wrapInput {
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inputText {
+    width: 320px;
+  }
+}

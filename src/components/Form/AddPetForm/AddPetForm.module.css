@@ -18,12 +18,31 @@
   color: rgba(43, 43, 42, 0.4);
 }
 
-.input {
+.inputText {
   border-radius: 30px;
-  padding: 9px 20px 9px 10px;
-  width: 170px;
-  height: 36px;
+  padding: 12px;
+  width: 100%;
+  height: 42px;
   border: 1px solid rgba(38, 38, 38, 0.15);
+  margin-bottom: 10px;
+}
+
+.inputText::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.lastInputBlockWraper {
+  display: flex;
+}
+
+@media screen and (min-width: 375px) {
+  .inputText {
+    padding: 16px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -31,6 +50,13 @@
     margin: 0 auto;
     width: 704px;
     padding: 40px 126px;
+  }
+  .inputText {
+    height: 52px;
+    margin-bottom: 18px;
+  }
+  .inputText::placeholder {
+    font-size: 16px;
   }
   .subTitle {
     font-size: 16px;

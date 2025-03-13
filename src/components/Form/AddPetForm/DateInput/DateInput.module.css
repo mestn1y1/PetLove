@@ -1,0 +1,73 @@
+.datePickerWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.dateInput {
+  border: 1px solid rgba(38, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 12px;
+  width: 124px;
+  height: 42px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #262626;
+}
+.react-datepicker__month-container {
+  float: right !important;
+}
+.dateInput::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: rgba(38, 38, 38, 0.5);
+}
+.calendarButton {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.icon {
+  fill: transparent;
+  stroke: #262626;
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (min-width: 375px) {
+  .dateInput {
+    width: 144px;
+    padding: 16px;
+  }
+  .calendarButton {
+    right: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dateInput {
+    width: 210px;
+    height: 52px;
+  }
+  .dateInput::placeholder {
+    font-size: 16px;
+  }
+}

@@ -1,4 +1,5 @@
 import { Field } from "formik";
+import Select from "react-select";
 import css from "./SpeciesSelect.module.css";
 
 const speciesOptions = [
@@ -21,13 +22,36 @@ const speciesOptions = [
 export default function SpeciesSelect({ name }) {
   return (
     <div className={css.speciesSelect}>
-      <Field as="select" name={name}>
-        <option value="">Select species</option>
-        {speciesOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
+      <Field name={name}>
+        {({ field, form, meta }) => {
+          const selectedValue = speciesOptions.find(
+            (option) => option.value === field.value
+          );
+
+          const handleChange = (selectedOption) => {
+            // Передаем только значение (value), а не весь объект
+            form.setFieldValue(
+              name,
+              selectedOption ? selectedOption.value : ""
+            );
+          };
+
+          return (
+            <>
+              <Select
+                name={name}
+                value={selectedValue}
+                onChange={handleChange}
+                options={speciesOptions}
+                placeholder="Type of pet"
+                classNamePrefix="react-select"
+              />
+              {meta.touched && meta.error && (
+                <div className={css.error}>{meta.error}</div>
+              )}
+            </>
+          );
+        }}
       </Field>
     </div>
   );
