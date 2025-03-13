@@ -1,35 +1,34 @@
 import { Field } from "formik";
 import Select from "react-select";
-import css from "./SpeciesSelect.module.css";
-
-const speciesOptions = [
-  { value: "dog", label: "Dog" },
-  { value: "cat", label: "Cat" },
-  { value: "monkey", label: "Monkey" },
-  { value: "bird", label: "Bird" },
-  { value: "snake", label: "Snake" },
-  { value: "turtle", label: "Turtle" },
-  { value: "lizard", label: "Lizard" },
-  { value: "frog", label: "Frog" },
-  { value: "fish", label: "Fish" },
-  { value: "ants", label: "Ants" },
-  { value: "bees", label: "Bees" },
-  { value: "butterfly", label: "Butterfly" },
-  { value: "spider", label: "Spider" },
-  { value: "scorpion", label: "Scorpion" },
-];
+import { customStyles } from "./customStyles";
+import { useNotices } from "../../../../hooks/useNotices";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchSpecies } from "../../../../redux/notices/operations";
 
 export default function SpeciesSelect({ name }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchSpecies());
+  }, [dispatch]);
+
+  const { species } = useNotices();
+
+  const speciesOptions = species?.map((speciesName) => ({
+    value: speciesName,
+    label: speciesName.charAt(0).toUpperCase() + speciesName.slice(1),
+  }));
+
   return (
-    <div className={css.speciesSelect}>
+    <div className="speciesSelectContainer">
       <Field name={name}>
         {({ field, form, meta }) => {
-          const selectedValue = speciesOptions.find(
+          const selectedValue = speciesOptions?.find(
             (option) => option.value === field.value
           );
 
           const handleChange = (selectedOption) => {
-            // Передаем только значение (value), а не весь объект
             form.setFieldValue(
               name,
               selectedOption ? selectedOption.value : ""
@@ -45,9 +44,10 @@ export default function SpeciesSelect({ name }) {
                 options={speciesOptions}
                 placeholder="Type of pet"
                 classNamePrefix="react-select"
+                styles={customStyles}
               />
               {meta.touched && meta.error && (
-                <div className={css.error}>{meta.error}</div>
+                <div className="errorMeta">{meta.error}</div>
               )}
             </>
           );

@@ -8,6 +8,9 @@ import FileUploadInput from "./FileUploadInput/FileUploadInput";
 import { validationSchemaAddPet } from "../../../validationSchemas/validationSchemas";
 import { Button } from "../../Button/Button";
 import DateInput from "./DateInput/DateInput";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchGenders, fetchSpecies } from "../../../redux/notices/operations";
 
 export default function AddPetForm() {
   const initialValues = {

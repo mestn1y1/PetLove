@@ -1,42 +1,44 @@
 import { Field } from "formik";
 import { Icons } from "../../../Icons/Icons";
 import css from "./GenderInput.module.css";
-
-const genderOptions = [
-  { id: "female", value: "female" },
-  { id: "male", value: "male" },
-  { id: "multiple", value: "multiple" },
-];
+import { useDispatch } from "react-redux";
+import { fetchGenders } from "../../../../redux/notices/operations";
+import { useEffect } from "react";
+import { useNotices } from "../../../../hooks/useNotices";
 
 export default function GenderInput({ name, value }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGenders());
+  }, [dispatch]);
+
+  const { genders } = useNotices();
+  const limitedGenders = genders?.slice(0, 3) || [];
+
   return (
     <div className={css.radioGroup}>
-      {genderOptions.map((option) => (
+      {limitedGenders.map((gender) => (
         <label
-          key={option.id}
-          htmlFor={option.id}
-          className={`${css.radioLabel} ${
-            value === option.value ? css.active : ""
-          }`}
+          key={gender}
+          htmlFor={gender}
+          className={`${css.radioLabel} ${value === gender ? css.active : ""}`}
         >
           <Field
             type="radio"
             name={name}
-            id={option.id}
-            value={option.value}
+            id={gender}
+            value={gender}
             className={css.radioInput}
           />
           <div className={css.iconWrap}>
             <Icons
-              iconName={
-                value === option.value ? option.value + "W" : option.value
-              }
-              className={`${css.icons} ${css[option.value]} ${
-                value === option.value
+              iconName={value === gender ? gender + "W" : gender}
+              className={`${css.icons} ${css[gender]} ${
+                value === gender
                   ? css[
                       `active${
-                        option.value.charAt(0).toUpperCase() +
-                        option.value.slice(1)
+                        gender.charAt(0).toUpperCase() + gender.slice(1)
                       }`
                     ]
                   : ""

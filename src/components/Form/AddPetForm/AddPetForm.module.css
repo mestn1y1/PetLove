@@ -37,6 +37,38 @@
 
 .lastInputBlockWraper {
   display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.btnBack {
+  border-radius: 30px;
+  padding: 12px 34px;
+  width: 100px;
+  height: 42px;
+  background: rgba(38, 38, 38, 0.05);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #262626;
+}
+.btnSubmit {
+  border-radius: 30px;
+  padding: 12px 26px;
+  width: 100px;
+  height: 42px;
+  background: #f6b83d;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
 
 @media screen and (min-width: 375px) {
@@ -61,6 +93,15 @@
   .subTitle {
     font-size: 16px;
     line-height: 125%;
+  }
+  .lastInputBlockWraper {
+    gap: 12px;
+  }
+  .btnBack,
+  .btnSubmit {
+    width: 170px;
+    height: 48px;
+    font-size: 16px;
   }
 }
 
