@@ -38,3 +38,16 @@ export const validationSchemaRegistration = Yup.object({
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm password is required"),
 });
+
+export const validationSchemaUser = Yup.object({
+  name: Yup.string().min(2, "Name must be at least 2 characters"),
+  email: Yup.string().matches(
+    /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+    "Invalid email format"
+  ),
+  imgURL: Yup.string().matches(
+    /^https?:\/\/.*\.(png|jpg|jpeg|gif|bmp|webp)$/,
+    "Invalid image URL"
+  ),
+  phone: Yup.string().matches(/^\+38\d{10}$/, "Invalid phone number format"),
+});

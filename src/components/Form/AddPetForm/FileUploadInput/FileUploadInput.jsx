@@ -7,6 +7,7 @@ export default function FileUploadInput({
   setFieldValue,
   value,
   touched,
+  className,
 }) {
   const cloudURL = import.meta.env.VITE_CLOUDINARY_URL;
   const preset_key = import.meta.env.VITE_UPLOAD_PRESET;
@@ -39,7 +40,9 @@ export default function FileUploadInput({
           name={name}
           placeholder="Enter URL"
           value={value}
-          className={`${css.inputText} ${touched.name ? css.changed : ""}`}
+          className={`${css.inputText} ${touched.name ? css.changed : ""} ${
+            className || ""
+          }`}
         />
         <ErrorMessage name={name} component="div" className={css.error} />
       </div>

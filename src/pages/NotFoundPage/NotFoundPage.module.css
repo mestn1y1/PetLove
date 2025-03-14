@@ -20,13 +20,15 @@
 }
 .titleImg {
   position: absolute;
-  bottom: -10px;
+  bottom: 0px;
+  left: 50%;
   display: inline-block;
   width: 109px;
   height: 109px;
   background: rgba(247, 195, 93, 0.6) url(/images/desc/cat_not_found.png)
     center/contain no-repeat;
   border-radius: 1000px;
+  transform: translateX(-50%);
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

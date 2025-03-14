@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Title from "../../Title/Title";
 import GenderInput from "./GenderInput/GenderInput";
 import SpeciesSelect from "./SpeciesSelect/SpeciesSelect";
-import PetAvatar from "./PetAvatar/PetAvatar";
+import Avatar from "./Avatar/Avatar";
 import FileUploadInput from "./FileUploadInput/FileUploadInput";
 import { toast } from "react-toastify";
 import { validationSchemaAddPet } from "../../../validationSchemas/validationSchemas";
@@ -61,9 +61,10 @@ export default function AddPetForm() {
               className={css.erroForLastBlock}
             />
           </div>
-          <PetAvatar
+          <Avatar
             imgUrl={values.imgURL && values.imgURL}
             imgUrlError={errors.imgURL}
+            iconName="pet"
           />
 
           <FileUploadInput
