@@ -1,5 +1,11 @@
 @import "modern-normalize/modern-normalize.css";
 @import "tailwindcss";
+
+:root {
+  --borderAnimation: border-color 0.3s ease-in-out;
+  --butonAnimation: background-color 0.3s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;

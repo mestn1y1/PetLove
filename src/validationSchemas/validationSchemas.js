@@ -3,7 +3,13 @@ import * as Yup from "yup";
 export const validationSchemaAddPet = Yup.object({
   name: Yup.string().required("Required"),
   title: Yup.string().required("Required"),
-  imgURL: Yup.string().required("Required"),
+  imgURL: Yup.string()
+    .required("Required")
+    .matches(
+      /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6}\.?)(\/[\w.-]*)*\/?$/,
+      "Enter a valid URL"
+    ),
+
   species: Yup.string().required("Required"),
   birthday: Yup.date().typeError("Invalid date").required("Required"),
   sex: Yup.string().required("Select gender"),

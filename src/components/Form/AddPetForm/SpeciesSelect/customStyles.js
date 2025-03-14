@@ -1,7 +1,9 @@
-export const customStyles = {
+export const customStyles = (isChanged) => ({
   control: (base, state) => ({
     ...base,
-    border: "1px solid rgba(38, 38, 38, 0.15)",
+    border: isChanged
+      ? "1px solid #f6b83d"
+      : "1px solid rgba(38, 38, 38, 0.15)",
     borderRadius: "30px",
     height: "42px",
     width: "108px",
@@ -18,15 +20,23 @@ export const customStyles = {
       paddingRight: "12px",
       paddingLeft: "6px",
     },
+
     "@media (min-width: 768px)": {
       height: "52px",
       width: "230px",
       fontSize: "16px",
     },
-
-    "&:hover": {
-      borderColor: "#fff4df",
+    "@media (min-width: 1280px)": {
+      height: "52px",
+      width: "248px",
+      fontSize: "16px",
     },
+    "&:hover": {
+      borderColor: "#f6b83d",
+    },
+    ...(state.isFocused && {
+      border: "1px solid #f6b83d",
+    }),
   }),
 
   menu: (base) => ({
@@ -46,6 +56,9 @@ export const customStyles = {
     "@media (min-width: 768px)": {
       height: "142px",
       width: "230px",
+    },
+    "@media (min-width: 1280px)": {
+      width: "248px",
     },
   }),
 
@@ -78,4 +91,4 @@ export const customStyles = {
     ...base,
     padding: "0",
   }),
-};
+});

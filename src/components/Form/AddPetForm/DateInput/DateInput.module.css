@@ -14,6 +14,7 @@
   align-items: center;
   position: relative;
 }
+
 .dateInput {
   border: 1px solid rgba(38, 38, 38, 0.15);
   border-radius: 30px;
@@ -25,6 +26,11 @@
   line-height: 129%;
   letter-spacing: -0.03em;
   color: #262626;
+  transition: var(--borderAnimation);
+}
+
+.dateInput:hover {
+  border: 1px solid #f6b83d;
 }
 
 .dateInput::placeholder {
@@ -34,6 +40,7 @@
   letter-spacing: -0.03em;
   color: rgba(38, 38, 38, 0.5);
 }
+
 .calendarButton {
   background: none;
   border: none;
@@ -43,11 +50,23 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
 .icon {
   fill: transparent;
   stroke: #262626;
   width: 18px;
   height: 18px;
+}
+
+.dateInput.focused {
+  border: 1px solid #f6b83d;
+}
+
+.dateInput.filled {
+  border: 1px solid #f6b83d;
+}
+.dateInput.error {
+  border: 1px solid red;
 }
 
 @media screen and (min-width: 375px) {

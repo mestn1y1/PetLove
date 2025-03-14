@@ -17,6 +17,7 @@
   height: 32px;
   border-radius: 100%;
   padding: 6px;
+  cursor: pointer;
 }
 
 .female {

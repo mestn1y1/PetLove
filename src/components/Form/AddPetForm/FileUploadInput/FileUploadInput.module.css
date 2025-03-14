@@ -9,6 +9,8 @@
   padding: 12px;
   width: 116px;
   height: 36px;
+  transition: var(--borderAnimation);
+  position: relative;
 }
 .inputText::placeholder {
   font-weight: 500;
@@ -16,6 +18,14 @@
   line-height: 129%;
   letter-spacing: -0.02em;
   color: rgba(38, 38, 38, 0.5);
+}
+
+.inputText:hover {
+  border: 1px solid #f6b83d;
+}
+
+.changed {
+  border: 1px solid #f6b83d;
 }
 
 .hiddenInput {
@@ -33,6 +43,11 @@
   padding: 10px;
   width: 117px;
   height: 36px;
+  cursor: pointer;
+  transition: var(--butonAnimation);
+}
+.customFileUpload:hover {
+  background: #ffe7c1;
 }
 .customFileUpload span {
   font-weight: 500;
@@ -45,6 +60,13 @@
 .uploadIcon {
   width: 16px;
   height: 16px;
+}
+.error {
+  position: absolute;
+  font-size: 10px;
+  color: red;
+  margin-top: -2px;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 375px) {
@@ -80,6 +102,10 @@
   }
   .wrapInput {
     margin-bottom: 18px;
+  }
+
+  .error {
+    margin-top: 2px;
   }
 }
 

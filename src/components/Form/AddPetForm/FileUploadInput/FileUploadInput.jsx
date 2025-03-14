@@ -2,7 +2,12 @@ import { Field, ErrorMessage } from "formik";
 import css from "./FileUploadInput.module.css";
 import { Icons } from "../../../Icons/Icons";
 
-export default function FileUploadInput({ name, setFieldValue, value }) {
+export default function FileUploadInput({
+  name,
+  setFieldValue,
+  value,
+  touched,
+}) {
   const cloudURL = import.meta.env.VITE_CLOUDINARY_URL;
   const preset_key = import.meta.env.VITE_UPLOAD_PRESET;
 
@@ -23,9 +28,7 @@ export default function FileUploadInput({ name, setFieldValue, value }) {
 
       const data = await response.json();
       setFieldValue(name, data.secure_url);
-    } catch (error) {
-      console.error("Ошибка загрузки файла:", error);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -36,9 +39,9 @@ export default function FileUploadInput({ name, setFieldValue, value }) {
           name={name}
           placeholder="Enter URL"
           value={value}
-          className={css.inputText}
+          className={`${css.inputText} ${touched.name ? css.changed : ""}`}
         />
-        <ErrorMessage name={name} component="div" />
+        <ErrorMessage name={name} component="div" className={css.error} />
       </div>
 
       <div className={css.fileInputWrapper}>
@@ -53,7 +56,6 @@ export default function FileUploadInput({ name, setFieldValue, value }) {
           <span>Upload photo</span>
           <Icons iconName="upload" className={css.uploadIcon} />
         </label>
-        <ErrorMessage name={name} component="div" />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./DateInput.module.css";
@@ -6,12 +6,16 @@ import { Icons } from "../../../Icons/Icons";
 
 export default function DateInput({ name, value, setFieldValue, ...props }) {
   const [open, setOpen] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setIsFilled] = useState(!!value);
 
   const selectedDate = value ? new Date(value) : null;
+  const inputRef = useRef(null);
 
   const handleDateSelect = (date) => {
     const formattedDate = formatDate(date);
     setFieldValue(name, formattedDate);
+    setIsFilled(true);
     setOpen(false);
   };
 
@@ -20,6 +24,14 @@ export default function DateInput({ name, value, setFieldValue, ...props }) {
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
   };
 
   return (
@@ -32,9 +44,12 @@ export default function DateInput({ name, value, setFieldValue, ...props }) {
           onChange={(date) => {
             const formattedDate = formatDate(date);
             setFieldValue(name, formattedDate);
+            setIsFilled(true);
           }}
           dateFormat="dd/MM/yyyy"
-          className={css.dateInput}
+          className={`${css.dateInput} ${isFocused ? css.focused : ""} ${
+            isFilled ? css.filled : ""
+          }`}
           placeholderText="00.00.0000"
           open={open}
           onClickOutside={() => setOpen(false)}
@@ -46,11 +61,17 @@ export default function DateInput({ name, value, setFieldValue, ...props }) {
               offset: "5px, 10px",
             },
           }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          ref={inputRef}
         />
         <button
           type="button"
           className={css.calendarButton}
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            setOpen(!open);
+            inputRef.current.input.focus();
+          }}
         >
           <Icons iconName="calendar" className={css.icon} />
         </button>
