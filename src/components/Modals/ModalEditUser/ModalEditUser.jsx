@@ -1,23 +1,40 @@
 import Avatar from "../../Form/AddPetForm/Avatar/Avatar";
 import FileUploadInput from "../../Form/AddPetForm/FileUploadInput/FileUploadInput";
 import { Icons } from "../../Icons/Icons";
-import Title from "../../Title/Title";
 import css from "./ModalEditUser.module.css";
 import { validationSchemaUser } from "../../../validationSchemas/validationSchemas";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { Button } from "../../Button/Button";
+import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { editUser } from "../../../redux/auth/operations";
+import { toast } from "react-toastify";
 
 export default function ModalEditUser({ handleClose }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {
+    user: { name, email, phone, avatar },
+  } = useAuth();
   const initialValues = {
-    name: "",
-    email: "",
-    phone: "",
-    imgURL: "", // Добавляем в начальные значения
+    name: name || "",
+    email: email || "",
+    phone: phone || "+380",
+    avatar: avatar || "",
   };
-
-  const handleSubmit = (values, actions) => {
-    console.log(values);
+  const handleSubmit = async (values, actions) => {
+    try {
+      await dispatch(editUser(values)).unwrap();
+      handleClose();
+      toast.success("Data is updated successfully");
+    } catch (error) {
+      toast.error(`Something went wrong: ${error.message}`);
+    }
     actions.setSubmitting(false);
+  };
+  const handleBackClick = () => {
+    navigate("/profile");
   };
 
   return (
@@ -26,7 +43,7 @@ export default function ModalEditUser({ handleClose }) {
       onSubmit={handleSubmit}
       validationSchema={validationSchemaUser}
     >
-      {({ setFieldValue, values, touched, errors }) => (
+      {({ setFieldValue, values, touched, errors, dirty }) => (
         <Form className={css.formWrap}>
           <button type="button" onClick={handleClose} className={css.btnClose}>
             <Icons iconName="close" className={css.iconClose} />
@@ -34,15 +51,15 @@ export default function ModalEditUser({ handleClose }) {
           <h1 className={css.title}>Edit information</h1>
           <Avatar
             iconName="userY"
-            imgUrl={values.imgURL && values.imgURL}
-            imgUrlError={errors.imgURL}
+            imgUrl={values.avatar && values.avatar}
+            imgUrlError={errors.avatar}
             className={css.avatarIcon}
             iconClassName={css.avatarIconSvg}
           />
           <FileUploadInput
-            name="imgURL"
+            name="avatar"
             setFieldValue={setFieldValue}
-            value={values.imgURL}
+            value={values.avatar}
             touched={touched}
             className={css.inputUrl}
           />
@@ -51,7 +68,7 @@ export default function ModalEditUser({ handleClose }) {
               type="text"
               name="name"
               placeholder="Name"
-              className={`${css.inputText} ${touched.title ? css.changed : ""}`}
+              className={`${css.inputText} ${touched.name ? css.changed : ""}`}
             />
             <ErrorMessage name="name" component="div" />
           </div>
@@ -60,7 +77,7 @@ export default function ModalEditUser({ handleClose }) {
               type="email"
               name="email"
               placeholder="Email"
-              className={`${css.inputText} ${touched.name ? css.changed : ""}`}
+              className={`${css.inputText} ${touched.email ? css.changed : ""}`}
             />
             <ErrorMessage name="email" component="div" />
           </div>
@@ -69,11 +86,20 @@ export default function ModalEditUser({ handleClose }) {
               type="text"
               name="phone"
               placeholder="+380 "
-              className={`${css.inputText} ${touched.name ? css.changed : ""}`}
+              className={`${css.inputText} ${touched.phone ? css.changed : ""}`}
             />
             <ErrorMessage name="phone" component="div" />
           </div>
-          <Button type="submit" text="Save" className={css.submitBtn} />
+          {dirty ? (
+            <Button type="submit" text="Save" className={css.submitBtn} />
+          ) : (
+            <Button
+              type="button"
+              text="Back to profile"
+              className={css.submitBtn}
+              onClick={handleBackClick}
+            />
+          )}
         </Form>
       )}
     </Formik>

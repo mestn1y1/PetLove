@@ -4,6 +4,10 @@
   gap: 8px;
 }
 
+.userAvatar {
+  border-radius: 100%;
+}
+
 .userLink {
   width: 40px;
   height: 40px;

@@ -1,1 +1,49 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.wrapUserPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.btnClassName {
+  display: block;
+  border-radius: 30px;
+  padding: 12px 28px;
+  width: 114px;
+  height: 42px;
+  background: #fff4df;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #f6b83d;
+}
+
+.userBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 30px;
+  padding: 10px 14px;
+  height: 38px;
+  width: 80px;
+  background: #f6b83d;
+}
+.userName {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.userIcon {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (min-width: 1280px) {
+  .containerUserCard {
+    width: 520px;
+    padding: 8px;
+  }
+}

@@ -7,7 +7,7 @@ import { Button } from "../Button/Button";
 import ModalApproveAction from "../Modals/ModalApproveAction/ModalApproveAction";
 import css from "./LogOutBtn.module.css";
 
-export default function LogOutBtn({ isHome }) {
+export default function LogOutBtn({ isHome, btnClassName }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +29,9 @@ export default function LogOutBtn({ isHome }) {
       <Button
         text="Log out"
         onClick={openModal}
-        className={`${css.btnLogOut} ${isHome ? css.hidden : ""}`}
+        className={`${css.btnLogOut} ${
+          isHome ? css.hidden : ""
+        } ${btnClassName}`}
       />
       {isModalOpen && (
         <ModalWrap
