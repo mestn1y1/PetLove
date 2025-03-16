@@ -19,31 +19,21 @@ export default function UserBlock() {
       <h2 className={css.title}>My information</h2>
       <ul className={css.userInfoList}>
         <li>
-          <input
-            className={css.userInfoItem}
-            type="text"
-            value={user.name.charAt(0).toUpperCase() + user.name.slice(1)}
-            readOnly
-          />
+          <p className={css.userInfoItem}>
+            {user.name.charAt(0).toUpperCase() + user.name.slice(1)}
+          </p>
         </li>
         <li>
-          <input
-            className={css.userInfoItem}
-            type="email"
-            value={user.email}
-            readOnly
-          />
+          <p className={css.userInfoItem}>{user.email}</p>
         </li>
         <li>
-          <input
+          <p
             className={`${css.userInfoItem} ${
               !user.phone ? css.emptyField : ""
             }`}
-            type="text"
-            value={user.phone}
-            readOnly
-            placeholder="+380"
-          />
+          >
+            {user?.phone || "+38"}
+          </p>
         </li>
       </ul>
     </div>
