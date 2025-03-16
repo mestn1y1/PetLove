@@ -6,7 +6,7 @@ import SpeciesSelect from "./SpeciesSelect/SpeciesSelect";
 import Avatar from "./Avatar/Avatar";
 import FileUploadInput from "./FileUploadInput/FileUploadInput";
 import { toast } from "react-toastify";
-import { validationSchemaAddPet } from "../../../validationSchemas/validationSchemas";
+import  validationSchemaAddPet from "../../../validationSchemas/validationSchemas";
 import { Button } from "../../Button/Button";
 import DateInput from "./DateInput/DateInput";
 import { useDispatch } from "react-redux";
