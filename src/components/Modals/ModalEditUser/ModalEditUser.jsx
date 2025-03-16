@@ -97,7 +97,7 @@ export default function ModalEditUser({ handleClose }) {
               type="button"
               text="Back to profile"
               className={css.submitBtn}
-              onClick={handleBackClick}
+              onClick={handleClose}
             />
           )}
         </Form>
