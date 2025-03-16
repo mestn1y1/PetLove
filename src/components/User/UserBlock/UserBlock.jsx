@@ -2,20 +2,24 @@ import Avatar from "../../Form/AddPetForm/Avatar/Avatar";
 import css from "./UserBlock.module.css";
 import { useAuth } from "../../../hooks/useAuth";
 
-export default function UserBlock() {
+export default function UserBlock({ openModal }) {
   const { user } = useAuth();
 
   return (
     <div>
-      <Avatar
-        iconName="userY"
-        imgUrl={user.avatar}
-        className={css.avatarIcon}
-        iconClassName={css.avatarIconUser}
-      />
-      {!user.avatar && (
-        <button className={css.openModalButton}>Upload photo</button>
-      )}
+      <div className={css.avatarWrap}>
+        <Avatar
+          iconName="userY"
+          imgUrl={user.avatar}
+          className={css.avatarIcon}
+          iconClassName={css.avatarIconUser}
+        />
+        {!user.avatar && (
+          <button className={css.openModalButton} onClick={openModal}>
+            Upload photo
+          </button>
+        )}
+      </div>
       <h2 className={css.title}>My information</h2>
       <ul className={css.userInfoList}>
         <li>

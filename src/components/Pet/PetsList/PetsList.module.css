@@ -1,1 +1,41 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.petsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.petsItem {
+  border: 1px solid rgba(38, 38, 38, 0.1);
+  border-radius: 20px;
+  width: 240px;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  gap: 14px;
+}
+
+@media screen and (min-width: 375px) {
+  .petsItem {
+    padding: 16px;
+    width: 295px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .petsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .petsItem {
+    width: 316px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .petsItem {
+    padding: 16px;
+    width: 100%;
+    gap: 27px;
+    padding: 20px;
+  }
+}

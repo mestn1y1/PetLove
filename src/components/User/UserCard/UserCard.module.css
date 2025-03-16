@@ -41,9 +41,19 @@
   height: 18px;
 }
 
+.containerUserCard {
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .containerUserCard {
+    padding: 40px;
+  }
+}
 @media screen and (min-width: 1280px) {
   .containerUserCard {
     width: 520px;
-    padding: 8px;
   }
 }

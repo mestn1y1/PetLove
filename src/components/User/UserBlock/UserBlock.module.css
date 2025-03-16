@@ -17,6 +17,13 @@
   outline: none;
   border: none;
   background: transparent;
+  margin: 0 auto;
+}
+.avatarWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 28px;
 }
 
 .userInfoList {
@@ -44,6 +51,10 @@
   line-height: 129%;
   letter-spacing: -0.03em;
   color: #262626;
+}
+
+.avatarIconUser {
+  margin-bottom: 8px;
 }
 
 .emptyField {

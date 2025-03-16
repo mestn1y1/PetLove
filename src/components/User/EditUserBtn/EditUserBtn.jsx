@@ -3,12 +3,7 @@ import { Icons } from "../../Icons/Icons";
 import ModalEditUser from "../../Modals/ModalEditUser/ModalEditUser";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import css from "./EditUserBtn.module.css";
-import { useState } from "react";
-export default function EditUserBtn() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
+export default function EditUserBtn({ openModal, closeModal, isModalOpen }) {
   return (
     <>
       <Button className={css.editBtn} onClick={openModal}>
