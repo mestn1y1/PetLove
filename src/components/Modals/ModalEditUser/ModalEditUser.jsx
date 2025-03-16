@@ -2,7 +2,7 @@ import Avatar from "../../Form/AddPetForm/Avatar/Avatar";
 import FileUploadInput from "../../Form/AddPetForm/FileUploadInput/FileUploadInput";
 import { Icons } from "../../Icons/Icons";
 import css from "./ModalEditUser.module.css";
-import validationSchemaUser from "../../../validationSchemas/validationSchemas";
+import validationSchemaUser from "../../../validationSchemas/validationSchemas.js";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { Button } from "../../Button/Button";
 import { useAuth } from "../../../hooks/useAuth";
