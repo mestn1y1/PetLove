@@ -6,8 +6,5 @@ export default defineConfig({
   base: "/",
   build: {
     sourcemap: true,
-    rollupOptions: {
-      external: ["yup"],
-    },
   },
 });
