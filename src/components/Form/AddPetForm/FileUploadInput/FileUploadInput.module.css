@@ -69,6 +69,10 @@
   margin-left: 10px;
 }
 
+.wrapUrlInput {
+  position: relative;
+}
+
 @media screen and (min-width: 375px) {
   .inputText {
     width: 170px;

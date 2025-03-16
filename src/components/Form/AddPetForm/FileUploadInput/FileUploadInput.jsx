@@ -34,7 +34,7 @@ export default function FileUploadInput({
 
   return (
     <div className={css.wrapInput}>
-      <div>
+      <div className={css.wrapUrlInput}>
         <Field
           type="text"
           name={name}
