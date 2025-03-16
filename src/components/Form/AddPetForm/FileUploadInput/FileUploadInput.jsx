@@ -57,7 +57,7 @@ export default function FileUploadInput({
         />
         <label htmlFor={name} className={css.customFileUpload}>
           <span>Upload photo</span>
-          <Icons iconName="upload" className={css.uploadIcon} />
+          <Icons iconName="upload-cloud" className={css.uploadIcon} />
         </label>
       </div>
     </div>
