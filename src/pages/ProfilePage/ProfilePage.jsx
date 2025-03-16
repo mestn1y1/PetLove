@@ -9,7 +9,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, []);
+  }, [dispatch]);
 
   return (
     <section className={css.profilePage}>
