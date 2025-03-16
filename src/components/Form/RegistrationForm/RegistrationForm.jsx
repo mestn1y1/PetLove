@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../../redux/auth/operations";
 import { selectIsLoading } from "../../../redux/auth/selectors";
-import validationSchemaRegistration from "../../../validationSchemas/validationSchemas.js";
+import { validationSchemaRegistration } from "../../../validationSchemas/validationSchemas.js";
 
 export default function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
