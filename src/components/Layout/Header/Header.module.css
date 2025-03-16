@@ -46,10 +46,13 @@
     padding-left: 96px;
     padding-right: 96px;
     padding-top: 32px;
+    max-width: 1920px;
+    margin: 0 auto;
   }
   .header {
     padding-left: 64px;
     padding-right: 64px;
+    max-width: 1920px;
   }
 
   .navContainer {
@@ -57,5 +60,20 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .headerHome {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding-left: 96px;
+    padding-right: 96px;
+    padding-top: 32px;
+
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

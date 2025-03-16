@@ -1,6 +1,5 @@
 import css from "./RegistrationForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 import { FiCheck } from "react-icons/fi";

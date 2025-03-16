@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 import { FiCheck } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/auth/operations";
 import Title from "../../Title/Title";
 import { Button } from "../../Button/Button";

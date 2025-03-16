@@ -17,12 +17,14 @@ img {
   display: block;
 }
 
-body {
-  width: 100%;
+body,
+html {
+  max-width: 1920px;
   height: 100%;
   font-family: "Manrope", sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+  margin: 0 auto;
 }
 
 ul,
