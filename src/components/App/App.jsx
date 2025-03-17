@@ -21,6 +21,7 @@ const Profile = lazy(() => import("../../pages/ProfilePage/ProfilePage"));
 const AddPet = lazy(() => import("../../pages/AddPetPage/AddPetPage"));
 
 import css from "./App.module.css";
+import LoaderCustom from "../LoaderCustom/LoaderCustom";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoaderCustom />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
