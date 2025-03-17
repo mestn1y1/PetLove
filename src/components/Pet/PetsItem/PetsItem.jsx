@@ -1,12 +1,21 @@
+import { useDispatch } from "react-redux";
 import formatDate from "../../../helpers/formaterDate";
 import { Icons } from "../../Icons/Icons";
 import css from "./PetsItem.module.css";
+import { removePet } from "../../../redux/auth/operations";
+import { toast } from "react-toastify";
 export default function PetsItem({
   pet: { name, birthday, sex, species, title, _id, imgURL },
 }) {
+  const dispatch = useDispatch();
+  const handleDelete = async () => {
+    dispatch(removePet(_id));
+    toast.success("Pet succsesfully delete");
+  };
+
   return (
     <>
-      <button className={css.petDeleteBtn}>
+      <button className={css.petDeleteBtn} onClick={handleDelete}>
         <Icons iconName="trash" className={css.petBtnIcon} />
       </button>
       <img className={css.petAvatar} src={imgURL} alt="petsAvatar" />
