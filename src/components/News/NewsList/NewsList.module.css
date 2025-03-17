@@ -24,7 +24,9 @@
   max-width: 335px;
   margin: 0 auto;
 }
-
+.wrapContainerForPagination {
+  padding-bottom: 80px;
+}
 @media screen and (min-width: 768px) {
   .newsList {
     flex-direction: row;
