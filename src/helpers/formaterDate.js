@@ -1,5 +1,9 @@
 import { format } from "date-fns";
 
-export default function formatDate(isoDate) {
+export function formatDate(isoDate) {
   return format(new Date(isoDate), "dd.MM.yyyy");
+}
+
+export function formatDateWithSlash(isoDate) {
+  return format(new Date(isoDate), "dd/MM/yyyy");
 }
