@@ -4,6 +4,7 @@
 :root {
   --borderAnimation: border-color 0.3s ease-in-out;
   --butonAnimation: background-color 0.3s ease-in-out;
+  --colorTextAnimation: color 0.3s ease-in-out;
 }
 
 * {

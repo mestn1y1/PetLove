@@ -1,1 +1,95 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.friendsItemBeidge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 30px;
+  width: auto;
+  height: 32px;
+  padding: 8px;
+  background: #fff4df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.friendsItemBeidgeInfo {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #f6b83d;
+}
+.friendsItemLogo {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+.friendsItemTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.04em;
+  color: #262626;
+  margin-bottom: 14px;
+}
+
+.friendsItemContactInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.friendsItemContactInfoText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+  display: flex;
+  align-items: center;
+}
+.friendsItemEmailLink {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #262626;
+  transition: var(--colorTextAnimation);
+  margin-left: 2px;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.friendsItemEmailLink:hover {
+  color: #f6b83d;
+}
+
+@media screen and (min-width: 375px) {
+  .friendsItemLogo {
+    width: 80px;
+    height: 80px;
+  }
+  .friendsItemEmailLink {
+    max-width: 150px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .friendsItemLogo {
+    width: 90px;
+    height: 90px;
+  }
+  .friendsItemTitle {
+    font-size: 20px;
+  }
+  .friendsItemBeidgeInfo {
+    font-size: 14px;
+  }
+  .friendsItemBeidge {
+    padding: 8px;
+    width: auto;
+    height: 34px;
+  }
+}

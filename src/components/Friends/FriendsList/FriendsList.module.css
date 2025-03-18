@@ -1,1 +1,48 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 44px;
+  margin-bottom: 88px;
+}
+
+.friendsItem {
+  border-radius: 15px;
+  width: 270px;
+  height: 184px;
+  background: #fff;
+  padding: 40px 20px;
+  position: relative;
+  display: flex;
+  gap: 14px;
+}
+
+@media screen and (min-width: 374px) {
+  .friendsItem {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .friendsItem {
+    width: 354px;
+  }
+  .friendsList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .friendsList {
+    justify-content: center;
+    align-items: center;
+  }
+  .friendsItem {
+    width: 372px;
+  }
+}
