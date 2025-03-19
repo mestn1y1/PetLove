@@ -1,8 +1,27 @@
-# React + Vite
+## Pelove - Pet Adoption Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Pelove, a platform dedicated to helping users find and adopt their perfect pets. This site offers a seamless experience for browsing available pets, viewing detailed information, managing favorites, and more.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+** User Authentication:** Secure registration, login, and profile management.
+** My Favorite Pets:** A dedicated tab showcasing pets added to the user's favorites list.
+** Viewed Pets:** Tracks and displays pets the user has recently viewed.
+** Pet Details Page:** Comprehensive information about each pet, including photos and descriptions.
+➕ Add Pet: Easy-to-use form for users to add pets to the platform.
+️ Pet Removal: Simple removal of pets from favorites with dynamic page updates.
+** News Page:** Latest pet-related news with a search functionality.
+** Partners Page:** List of trusted platform partners.
+** Profile Page:** View and edit user profiles.
+** Responsive Design:** Fully responsive layout for optimal viewing on all devices.
+✨ Modal Popups: Elegant modal windows for action confirmations and additional info.
+✅ Form Validation: Robust input validation to ensure data integrity.
+️ Technologies Used
+⚛️ React: JavaScript library for building user interfaces.
+** Redux:** State management for handling app data like favorites and search filters.
+️ React Router: Navigation and routing between different pages.
+** Formik:** Form handling and validation.
+️ Yup: Schema validation for forms.
+️ React-Modal: Displaying modal windows.
+** Toastify:** User notifications for success and error messages.
+** Axios:** HTTP requests to fetch pet data and manage favorites.
+** JWT Authentication:** Secure user authentication.
