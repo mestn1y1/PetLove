@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import {formatDate} from "../../../helpers/formaterDate";
+import { formatDate } from "../../../helpers/formaterDate";
 import { Icons } from "../../Icons/Icons";
 import css from "./PetsItem.module.css";
 import { removePet } from "../../../redux/auth/operations";
@@ -59,7 +59,3 @@ export default function PetsItem({
     </>
   );
 }
-
-// {
-//   user.name.charAt(0).toUpperCase() + user.name.slice(1);
-// }

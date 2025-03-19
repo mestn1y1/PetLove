@@ -1,1 +1,60 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.modalWrap {
+  border-radius: 30px;
+  min-width: 280px;
+  max-width: 335px;
+  height: 100%;
+  padding: 48px 20px;
+  background: #fff;
+  position: relative;
+}
+
+.closeBtn {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+}
+.iconBtn {
+  fill: transparent;
+  stroke: #262626;
+  width: 14px;
+  height: 14px;
+}
+
+.imgWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.img {
+  border-radius: 100px;
+  width: 120px;
+  height: 120px;
+}
+.beidge {
+  position: absolute;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #f6b83d;
+  border-radius: 30px;
+  padding: 8px;
+  left: 50px;
+  top: 8px;
+  width: 48px;
+  height: 32px;
+  text-align: center;
+  background: #fff4df;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+  text-align: center;
+}

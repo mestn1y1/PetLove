@@ -1,1 +1,8 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.filterWrap {
+  margin-top: 40px;
+  border-radius: 30px;
+  max-width: 335px;
+  height: 378px;
+  background: #fff4df;
+  padding: 20px;
+}

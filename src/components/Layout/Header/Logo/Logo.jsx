@@ -13,7 +13,7 @@ export default function Logo() {
     >
       petl
       <Icons
-        iconName={isHome ? "heartWhite" : "heart"}
+        iconName={isHome ? "heartWhite" : "heart1"}
         className={css.logoIcon}
       />
       ve

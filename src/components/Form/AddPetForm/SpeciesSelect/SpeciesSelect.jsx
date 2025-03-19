@@ -5,7 +5,7 @@ import { useNotices } from "../../../../hooks/useNotices";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchSpecies } from "../../../../redux/notices/operations";
-import { useFormikContext } from "formik"; // Импортируем useFormikContext
+import { useFormikContext } from "formik";
 
 export default function SpeciesSelect({ name }) {
   const dispatch = useDispatch();
@@ -15,14 +15,14 @@ export default function SpeciesSelect({ name }) {
   }, [dispatch]);
 
   const { species } = useNotices();
-  const { initialValues, values } = useFormikContext(); // Получаем initialValues и values
+  const { initialValues, values } = useFormikContext();
 
   const speciesOptions = species?.map((speciesName) => ({
     value: speciesName,
     label: speciesName.charAt(0).toUpperCase() + speciesName.slice(1),
   }));
 
-  const isChanged = values[name] !== initialValues[name]; // Сравниваем значения
+  const isChanged = values[name] !== initialValues[name];
 
   return (
     <div className="speciesSelectContainer">
@@ -48,7 +48,7 @@ export default function SpeciesSelect({ name }) {
                 options={speciesOptions}
                 placeholder="Type of pet"
                 classNamePrefix="react-select"
-                styles={customStyles(isChanged)} // Передаем isChanged
+                styles={customStyles(isChanged)}
               />
             </>
           );

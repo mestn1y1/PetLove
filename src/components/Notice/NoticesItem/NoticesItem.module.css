@@ -1,1 +1,127 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+.itemImg {
+  width: 100%;
+  border-radius: 16px;
+  height: 178px;
+  margin-bottom: 24px;
+}
+
+.itemTitleWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.itemTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+  width: 189px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.itemDetailList {
+  display: flex;
+  gap: 12px;
+  row-gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.itemDetailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemDetailItemText {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.itemDetailItemSpan {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+
+.itemIconStar {
+  width: 16px;
+  height: 16px;
+}
+.itemPopularity {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #2b2b2a;
+}
+
+.itemComent {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #2b2b2a;
+  margin-bottom: 16px;
+}
+
+.itemPrice {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+  margin-bottom: 12px;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: space-between;
+}
+.btnMore {
+  border-radius: 30px;
+  padding: 14px;
+  width: 180px;
+  height: 46px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.btnFavorite {
+  border-radius: 100%;
+  width: 46px;
+  height: 46px;
+  background: #fff4df;
+  padding: 14px;
+}
+
+.iconHeartStroke {
+  height: 16px;
+  width: 16px;
+}
+
+@media screen and (min-width: 375px) {
+  .itemDetailList {
+    justify-content: space-around;
+  }
+  .btnMore {
+    width: 230px;
+  }
+  .itemTitle {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    width: auto;
+  }
+}
