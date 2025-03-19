@@ -1,37 +1,34 @@
-## Pelove - Pet Adoption Website
+# Pelove - Pet Adoption Website
 
 Welcome to Pelove, a platform dedicated to helping users find and adopt their perfect pets. This site offers a seamless experience for browsing available pets, viewing detailed information, managing favorites, and more.
 
 ---
 
-## 🚀 Features
+## Features
 
 - ** User Authentication:** Secure registration, login, and profile management.
-- ** My Favorite Pets:** A dedicated tab showcasing pets added to the user's favorites list.
-- ** Viewed Pets:** Tracks and displays pets the user has recently viewed.
-- ** Pet Details Page:** Comprehensive information about each pet, including photos and descriptions.
-- ➕ Add Pet: Easy-to-use form for users to add pets to the platform.
-- Pet Removal: Simple removal of pets from favorites with dynamic page updates.
-- ** News Page:** Latest pet-related news with a search functionality.
-- ** Partners Page:** List of trusted platform partners.
-- ** Profile Page:** View and edit user profiles.
-- ** Responsive Design:** Fully responsive layout for optimal viewing on all devices.
-- ✨ Modal Popups: Elegant modal windows for action confirmations and additional info.
-- ✅ Form Validation: Robust input validation to ensure data integrity.
-  ️
+- ** My Favorite Pets:** Dedicated tab for pets added to favorites.
+- ** Viewed Pets:** Tracks recently viewed pets.
+- ** Pet Details Page:** Comprehensive pet information.
+- **➕ Add Pet:** Easy form to add pets.
+- **️ Pet Removal:** Simple removal from favorites, dynamic updates.
+- ** News Page:** Pet news with search.
+- ** Partners Page:** List of trusted partners.
+- ** Profile Page:** View/edit user profiles.
+- ** Responsive Design:** Optimal viewing on all devices.
+- **✨ Modal Popups:** Elegant modals for confirmations.
+- **✅ Form Validation:** Robust input validation.
 
 ---
 
-## Technologies Used
+## ️ Technologies Used
 
-- ⚛️ React: JavaScript library for building user interfaces.
-- ** Redux:** State management for handling app data like favorites and search filters.
-  ️- React Router: Navigation and routing between different pages.
-- ** Formik:** Form handling and validation.
-- .
-
-- 🧩 Yup: Schema validation for forms.
-- React-Modal: Displaying modal windows.
-- ** Toastify:** User notifications for success and error messages.
-- ** Axios:** HTTP requests to fetch pet data and manage favorites.
-- ** JWT Authentication:** Secure user authentication.
+- **⚛️ React:** User interface library.
+- ** Redux:** State management.
+- **️ React Router:** Navigation.
+- ** Formik:** Form handling/validation.
+- **️ Yup:** Schema validation.
+- **️ React-Modal:** Modal windows.
+- ** Toastify:** User notifications.
+- ** Axios:** HTTP requests.
+- ** JWT Authentication:** Secure authentication.
