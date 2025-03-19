@@ -1,0 +1,25 @@
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #262626;
+  max-width: 335px;
+  margin-top: 80px;
+  margin-bottom: 140px;
+}
+.subText {
+  font-weight: 700;
+  color: #f6b83d;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    max-width: 458px;
+  }
+  .text,
+  .subText {
+    font-size: 16px;
+  }
+}

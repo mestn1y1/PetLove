@@ -5,7 +5,6 @@ import css from "./FriendsList.module.css";
 
 export default function FriendsList() {
   const { friends, isLoadFriends } = useFriends();
-  console.log(friends);
   return (
     <>
       {isLoadFriends && <LoaderCustom />}

@@ -5,7 +5,6 @@ import Pagination from "../../Pagination/Pagination";
 
 export default function NewsList({ setCurrentPage, currentPage }) {
   const { news, totalPages } = useNews();
-  console.log(news);
 
   if (!news || news.length === 0) {
     return (

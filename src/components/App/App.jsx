@@ -19,6 +19,8 @@ const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
 const NotFound = lazy(() => import("../../pages/NotFoundPage/NotFoundPage"));
 const Profile = lazy(() => import("../../pages/ProfilePage/ProfilePage"));
 const AddPet = lazy(() => import("../../pages/AddPetPage/AddPetPage"));
+const Viewed = lazy(() => import("../Notice/Viewed/Viewed"));
+const Favorites = lazy(() => import("../Notice/Favorites/Favorites"));
 
 import css from "./App.module.css";
 import LoaderCustom from "../LoaderCustom/LoaderCustom";
@@ -45,7 +47,11 @@ export default function App() {
               element={
                 <PrivateRoute redirectTo="/home" component={<Profile />} />
               }
-            ></Route>
+            >
+              <Route index element={<Favorites />} />
+              <Route path="favorites" element={<Favorites />} />
+              <Route path="viewed" element={<Viewed />} />
+            </Route>
             <Route
               path="add-pet"
               element={

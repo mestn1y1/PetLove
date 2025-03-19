@@ -1,0 +1,13 @@
+@media screen and (min-width: 1280px) {
+  .profilePage {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    justify-content: center;
+  }
+  .myNoticesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 698px;
+  }
+}

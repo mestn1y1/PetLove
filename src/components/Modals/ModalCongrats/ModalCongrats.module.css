@@ -1,0 +1,58 @@
+.modalWrap {
+  width: 300px;
+  height: 364px;
+  border-radius: 30px;
+  background: #fff;
+  padding: 55px;
+}
+.closeBtn {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+}
+
+.closeIcon {
+  width: 14px;
+  height: 14px;
+  fill: transparent;
+  stroke: #262626;
+}
+
+.imgWrap {
+  width: 80px;
+  height: 80px;
+  background: #fff4df;
+  padding: 18px;
+}
+.img {
+  width: 44px;
+  height: 44px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #2b2b2a;
+}
+
+.btnRedirect {
+  width: 250px;
+  height: 48px;
+  padding: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
