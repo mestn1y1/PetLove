@@ -1,7 +1,6 @@
 .modalWrap {
   border-radius: 30px;
-  min-width: 280px;
-  max-width: 335px;
+  width: 280px;
   height: 100%;
   padding: 48px 20px;
   background: #fff;
@@ -24,15 +23,19 @@
 }
 
 .imgWrap {
+  width: 120px;
+  height: 120px;
   position: relative;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 .img {
   border-radius: 100px;
   width: 120px;
   height: 120px;
+  object-fit: cover;
 }
 .beidge {
   position: absolute;
@@ -43,7 +46,7 @@
   color: #f6b83d;
   border-radius: 30px;
   padding: 8px;
-  left: 50px;
+  left: -8px;
   top: 8px;
   width: 48px;
   height: 32px;
@@ -57,4 +60,134 @@
   line-height: 125%;
   color: #2b2b2a;
   text-align: center;
+  margin-bottom: 8px;
+}
+
+.starsWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.starsWrap p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  color: #2b2b2a;
+}
+.itemDetailList {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  row-gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.itemDetailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemDetailItemText {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+.itemDetailItemSpan {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #262626;
+}
+.itemComent {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #2b2b2a;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.itemPrice {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  color: #2b2b2a;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btnAddRemove {
+  padding: 12px;
+  width: 135px;
+  height: 44px;
+  display: flex;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.iconHeart {
+  width: 18px;
+  height: 18px;
+}
+
+.linkContact {
+  background: #fff4df;
+  border-radius: 30px;
+  padding: 12px;
+  width: 134px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #f6b83d;
+  text-align: center;
+}
+
+@media screen and (min-width: 375px) {
+  .modalWrap {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imgWrap,
+  .img {
+    width: 150px;
+    height: 150px;
+  }
+  .modalWrap {
+    width: 474px;
+    padding: 40px 72px;
+  }
+  .title,
+  .itemPrice {
+    font-size: 18px;
+  }
+  .itemPrice {
+    margin-bottom: 20px;
+  }
+  .btnAddRemove,
+  .linkContact {
+    width: 160px;
+    height: 48px;
+  }
 }

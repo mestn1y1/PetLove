@@ -3,6 +3,7 @@
   border-radius: 16px;
   height: 178px;
   margin-bottom: 24px;
+  object-fit: cover;
 }
 
 .itemTitleWrap {
@@ -123,5 +124,9 @@
     text-overflow: clip;
     white-space: normal;
     width: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .itemTitle {
   }
 }

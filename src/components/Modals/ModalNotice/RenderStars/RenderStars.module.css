@@ -1,0 +1,15 @@
+.starsList {
+  display: flex;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  fill: #ffc531;
+}
+
+.starGrey {
+  width: 20px;
+  height: 20px;
+  fill: #f1ecec;
+}

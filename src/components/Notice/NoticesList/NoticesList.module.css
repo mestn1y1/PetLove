@@ -12,3 +12,14 @@
   background: #fff;
   padding: 24px;
 }
+
+@media screen and (min-width: 768px) {
+  .noticesList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .noticesItem {
+    min-width: 342px;
+  }
+}

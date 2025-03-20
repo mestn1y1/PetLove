@@ -5,11 +5,24 @@ import { formatDate } from "../../../helpers/formaterDate";
 import { useState } from "react";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import ModalNotice from "../../Modals/ModalNotice/ModalNotice";
+import ModalAtention from "../../Modals/ModalAttention/ModalAttention";
+import { useAuth } from "../../../hooks/useAuth";
 export default function NoticesItem({ item }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
+
+  const handleFavoriteClick = () => {
+    if (isLoggedIn) {
+      console.log("Добавлено в избранное:", item);
+    } else {
+      openAuthModal();
+    }
+  };
+  const openAuthModal = () => setIsAuthModalOpen(true);
+  const closeAuthModal = () => setIsAuthModalOpen(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  console.log(item);
   const {
     birthday,
     category,
@@ -29,7 +42,7 @@ export default function NoticesItem({ item }) {
         <h2 className={css.itemTitle}>{title}</h2>
         <p className={css.itemPopularity}>
           <Icons iconName="star" className={css.itemIconStar} />
-          {Math.floor(popularity / 1000)}
+          {popularity}
         </p>
       </div>
       <ul className={css.itemDetailList}>
@@ -71,13 +84,18 @@ export default function NoticesItem({ item }) {
           onClick={openModal}
           className={css.btnMore}
         />
-        <button className={css.btnFavorite}>
+        <button className={css.btnFavorite} onClick={handleFavoriteClick}>
           <Icons iconName="heart-stroke" className={css.iconHeartStroke} />
         </button>
       </div>
       {isModalOpen && (
         <ModalWrap isOpen={isModalOpen} handleClose={closeModal}>
           <ModalNotice item={item} handleClose={closeModal} />
+        </ModalWrap>
+      )}
+      {isAuthModalOpen && (
+        <ModalWrap isOpen={isAuthModalOpen} handleClose={closeAuthModal}>
+          <ModalAtention handleClose={closeAuthModal} />
         </ModalWrap>
       )}
     </div>
