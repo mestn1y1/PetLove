@@ -98,6 +98,9 @@
   letter-spacing: -0.03em;
   color: #fff;
 }
+.fullWidth {
+  width: 100%;
+}
 
 .btnFavorite {
   border-radius: 100%;

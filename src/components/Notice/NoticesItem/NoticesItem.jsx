@@ -13,6 +13,7 @@ import {
 } from "../../../redux/notices/operations";
 import { viewedPet } from "../../../redux/auth/operations";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 export default function NoticesItem({ item, onRemove }) {
   const {
     birthday,
@@ -28,9 +29,11 @@ export default function NoticesItem({ item, onRemove }) {
     _id,
   } = item;
   const dispatch = useDispatch();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { isLoggedIn, favoritesNotices } = useAuth();
+  const isViewed = location.pathname === "/profile/viewed";
   const [isFavorite, setIsFavorite] = useState(
     favoritesNotices.some((favItem) => favItem._id === _id)
   );
@@ -114,15 +117,17 @@ export default function NoticesItem({ item, onRemove }) {
           text="Learn more"
           type="button"
           onClick={openModal}
-          className={css.btnMore}
+          className={`${css.btnMore} ${isViewed ? css.fullWidth : ""}`}
         />
-        <button className={css.btnFavorite} onClick={handleFavoriteClick}>
-          {isFavorite ? (
-            <Icons iconName="trash" className={css.iconHeartStroke} />
-          ) : (
-            <Icons iconName="heart-stroke" className={css.iconHeartStroke} />
-          )}
-        </button>
+        {!isViewed && (
+          <button className={css.btnFavorite} onClick={handleFavoriteClick}>
+            {isFavorite ? (
+              <Icons iconName="trash" className={css.iconHeartStroke} />
+            ) : (
+              <Icons iconName="heart-stroke" className={css.iconHeartStroke} />
+            )}
+          </button>
+        )}
       </div>
       {isModalOpen && (
         <ModalWrap isOpen={isModalOpen} handleClose={closeModal}>
