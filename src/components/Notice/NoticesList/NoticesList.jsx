@@ -1,11 +1,11 @@
 import NoticesItem from "../NoticesItem/NoticesItem";
 import css from "./NoticesList.module.css";
-export default function NoticesList({ items }) {
+export default function NoticesList({ items, onRemove }) {
   return (
     <ul className={css.noticesList}>
       {items.map((item) => (
         <li className={css.noticesItem} key={item._id}>
-          <NoticesItem item={item} />
+          <NoticesItem item={item} onRemove={onRemove} />
         </li>
       ))}
     </ul>

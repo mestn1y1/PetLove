@@ -7,10 +7,11 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchNotices } from "../../redux/notices/filtration";
 import { useNotices } from "../../hooks/useNotices";
+import LoaderCustom from "../../components/LoaderCustom/LoaderCustom";
 export default function NoticesPage() {
   const dispatch = useDispatch();
-  const { notices } = useNotices();
-
+  const { notices, totalPagesNotices, isLoadNotices } = useNotices();
+  const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     search: "",
     category: "",
@@ -24,15 +25,22 @@ export default function NoticesPage() {
   };
 
   useEffect(() => {
-    dispatch(fetchNotices(filters));
-  }, [filters, dispatch]);
+    dispatch(fetchNotices({ page: currentPage, filters }));
+  }, [filters, dispatch, currentPage]);
 
   return (
     <>
-      <Title text="Find your favorite pet" />
-      <NoticesFilters onFilterChange={handleFilterChange} />
-      <NoticesList items={notices} />
-      <Pagination />
+      {isLoadNotices && <LoaderCustom />}
+      <section className={css.noticePages}>
+        <Title text="Find your favorite pet" />
+        <NoticesFilters onFilterChange={handleFilterChange} />
+        <NoticesList items={notices} />
+        <Pagination
+          totalPages={totalPagesNotices}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </section>
     </>
   );
 }

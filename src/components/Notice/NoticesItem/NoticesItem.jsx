@@ -2,27 +2,18 @@ import { Icons } from "../../Icons/Icons";
 import { Button } from "../../Button/Button";
 import css from "./NoticesItem.module.css";
 import { formatDate } from "../../../helpers/formaterDate";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import ModalNotice from "../../Modals/ModalNotice/ModalNotice";
 import ModalAtention from "../../Modals/ModalAttention/ModalAttention";
 import { useAuth } from "../../../hooks/useAuth";
-export default function NoticesItem({ item }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const { isLoggedIn } = useAuth();
-
-  const handleFavoriteClick = () => {
-    if (isLoggedIn) {
-      console.log("Добавлено в избранное:", item);
-    } else {
-      openAuthModal();
-    }
-  };
-  const openAuthModal = () => setIsAuthModalOpen(true);
-  const closeAuthModal = () => setIsAuthModalOpen(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+import {
+  AddToFavorites,
+  RemoveFromFavorites,
+} from "../../../redux/notices/operations";
+import { viewedPet } from "../../../redux/auth/operations";
+import { useDispatch } from "react-redux";
+export default function NoticesItem({ item, onRemove }) {
   const {
     birthday,
     category,
@@ -34,7 +25,46 @@ export default function NoticesItem({ item }) {
     sex,
     species,
     title,
+    _id,
   } = item;
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const { isLoggedIn, favoritesNotices } = useAuth();
+  const [isFavorite, setIsFavorite] = useState(
+    favoritesNotices.some((favItem) => favItem._id === _id)
+  );
+
+  useEffect(() => {
+    setIsFavorite(favoritesNotices.some((favItem) => favItem._id === _id));
+  }, [favoritesNotices, _id]);
+
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      openAuthModal();
+      return;
+    }
+
+    if (isFavorite) {
+      dispatch(RemoveFromFavorites(_id));
+      setIsFavorite(false);
+      if (onRemove) {
+        onRemove(_id);
+      }
+    } else {
+      dispatch(AddToFavorites(_id));
+      setIsFavorite(true);
+    }
+  };
+
+  const openAuthModal = () => setIsAuthModalOpen(true);
+  const closeAuthModal = () => setIsAuthModalOpen(false);
+  const openModal = () => {
+    dispatch(viewedPet(_id));
+    setIsModalOpen(true);
+  };
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div>
       <img src={imgURL} alt="avatar" className={css.itemImg} />
@@ -73,7 +103,9 @@ export default function NoticesItem({ item }) {
           </span>
         </li>
       </ul>
+
       <p className={css.itemComent}>{comment}</p>
+
       <p className={css.itemPrice}>
         ${price ? (price + 0.99).toFixed(2) : "0.00"}
       </p>
@@ -85,12 +117,21 @@ export default function NoticesItem({ item }) {
           className={css.btnMore}
         />
         <button className={css.btnFavorite} onClick={handleFavoriteClick}>
-          <Icons iconName="heart-stroke" className={css.iconHeartStroke} />
+          {isFavorite ? (
+            <Icons iconName="trash" className={css.iconHeartStroke} />
+          ) : (
+            <Icons iconName="heart-stroke" className={css.iconHeartStroke} />
+          )}
         </button>
       </div>
       {isModalOpen && (
         <ModalWrap isOpen={isModalOpen} handleClose={closeModal}>
-          <ModalNotice item={item} handleClose={closeModal} />
+          <ModalNotice
+            item={item}
+            handleClose={closeModal}
+            isFavorite={isFavorite}
+            handleFavoriteClick={handleFavoriteClick}
+          />
         </ModalWrap>
       )}
       {isAuthModalOpen && (

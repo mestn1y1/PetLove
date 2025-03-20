@@ -4,8 +4,12 @@ import { formatDate } from "../../../helpers/formaterDate";
 
 import RenderStars from "./RenderStars/RenderStars";
 import { Button } from "../../Button/Button";
-export default function ModalNotice({ item, handleClose }) {
-  const isFavorite = false;
+export default function ModalNotice({
+  item,
+  handleClose,
+  handleFavoriteClick,
+  isFavorite,
+}) {
   const {
     imgURL,
     title,
@@ -64,6 +68,7 @@ export default function ModalNotice({ item, handleClose }) {
         <Button
           text={isFavorite ? "Remove from" : "Add to"}
           className={css.btnAddRemove}
+          onClick={handleFavoriteClick}
         >
           <Icons iconName="heart-whiteStroke" className={css.iconHeart} />
         </Button>

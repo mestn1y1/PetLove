@@ -1,8 +1,10 @@
 .noticesList {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
+  width: 100%;
 }
 .noticesItem {
   border-radius: 16px;
@@ -13,6 +15,17 @@
   padding: 24px;
 }
 
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .noticesList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .noticesItem {
+    min-width: 342px;
+  }
+}
 @media screen and (min-width: 768px) {
   .noticesList {
     flex-direction: row;
@@ -21,5 +34,11 @@
   }
   .noticesItem {
     min-width: 342px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .noticesItem {
+    min-width: 362px;
   }
 }
