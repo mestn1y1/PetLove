@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, refreshUser, editUser, addPet, removePet } from "./operations";
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  editUser,
+  addPet,
+  removePet,
+} from "./operations";
 
 const initialState = {
   user: { name: null, email: null, phone: null, avatar: null },
@@ -30,21 +38,24 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state) => {
         state.isLoading = false;
-      }).addCase(logIn.pending, state => {
+      })
+      .addCase(logIn.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(logIn.fulfilled, (state, {payload}) => {
+      .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.token = payload.token;
         state.isLoggedIn = true;
         state.isLoading = false;
-      }).addCase(logIn.rejected, state => {
+      })
+      .addCase(logIn.rejected, (state) => {
         state.isLoading = false;
-      }).addCase(logOut.pending, state => {
+      })
+      .addCase(logOut.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(logOut.fulfilled, state => {
+      .addCase(logOut.fulfilled, (state) => {
         state.user = { name: null, email: null, phone: null, avatar: null };
         state.token = null;
         state.isLoggedIn = false;
@@ -53,12 +64,13 @@ export const authSlice = createSlice({
         state.noticesViewed = [];
         state.pets = [];
       })
-      .addCase(logOut.rejected, state => {
+      .addCase(logOut.rejected, (state) => {
         state.isLoading = false;
-      }).addCase(refreshUser.pending, state => {
+      })
+      .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, {payload}) => {
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.phone = payload.phone;
@@ -69,21 +81,25 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
-      }).addCase(editUser.pending, (state) => {
+      })
+      .addCase(editUser.pending, (state) => {
         state.isLoading = true;
         state.isRefreshing = true;
-      }).addCase(editUser.fulfilled, (state, {payload}) => {
+      })
+      .addCase(editUser.fulfilled, (state, { payload }) => {
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.phone = payload.phone;
         state.user.avatar = payload.avatar;
         state.isLoading = false;
         state.isRefreshing = false;
-      }).addCase(addPet.fulfilled, (state, {payload}) => {
+      })
+      .addCase(addPet.fulfilled, (state, { payload }) => {
         state.pets = payload.pets;
-      }).addCase(removePet.fulfilled, (state, {payload}) => {
+      })
+      .addCase(removePet.fulfilled, (state, { payload }) => {
         state.pets = payload.pets;
       });
   },

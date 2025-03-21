@@ -12,20 +12,10 @@ export default function FriendsPage() {
   useEffect(() => {
     dispatch(fetchFriends());
   }, [dispatch]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
-    <div>
+    <section>
       <Title text="Our friends" />
-      <button onClick={openModal}>Open Modal</button>
-
-      <ModalWrap isOpen={isModalOpen} handleClose={closeModal}>
-        <ModalAttention handleClose={closeModal} />
-      </ModalWrap>
       <FriendsList />
-    </div>
+    </section>
   );
 }

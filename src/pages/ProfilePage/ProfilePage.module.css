@@ -8,6 +8,7 @@
   .myNoticesContainer {
     display: flex;
     flex-direction: column;
-    width: 698px;
+    align-items: flex-start;
+    width: 760px;
   }
 }

@@ -4,6 +4,8 @@ import { formatDate } from "../../../helpers/formaterDate";
 
 import RenderStars from "./RenderStars/RenderStars";
 import { Button } from "../../Button/Button";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../../../redux/auth/operations";
 export default function ModalNotice({
   item,
   handleClose,
@@ -22,6 +24,12 @@ export default function ModalNotice({
     popularity,
     category,
   } = item;
+  const dispatch = useDispatch();
+  const handleFavoriteClickWithRefresh = () => {
+    handleFavoriteClick();
+    dispatch(refreshUser());
+  };
+
   return (
     <div className={css.modalWrap}>
       <button className={css.closeBtn} onClick={handleClose}>
@@ -68,7 +76,7 @@ export default function ModalNotice({
         <Button
           text={isFavorite ? "Remove from" : "Add to"}
           className={css.btnAddRemove}
-          onClick={handleFavoriteClick}
+          onClick={handleFavoriteClickWithRefresh}
         >
           <Icons iconName="heart-whiteStroke" className={css.iconHeart} />
         </Button>

@@ -122,6 +122,9 @@
   .btnMore {
     width: 230px;
   }
+  .fullWidth {
+    width: 100%;
+  }
   .itemTitle {
     overflow: visible;
     text-overflow: clip;
