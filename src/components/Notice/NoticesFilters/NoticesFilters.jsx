@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import SearchField from "../../News/SearchField/SearchField";
 import CategorySelect from "./CategorySelect/CategorySelect";
@@ -7,7 +8,6 @@ import LocationSelect from "./LocationSelect/LocationSelect";
 import RadioBtnSort from "./RadioBtnSort/RadioBtnSort";
 import css from "./NoticesFilters.module.css";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
 import {
   fetchCategories,
   fetchCities,
@@ -17,8 +17,13 @@ import {
 
 export default function NoticesFilters({ onFilterChange }) {
   const dispatch = useDispatch();
+
   const [locationKeyword, setLocationKeyword] = useState("");
 
+  const handleReset = (resetForm) => {
+    resetForm();
+    setLocationKeyword("");
+  };
   useEffect(() => {
     dispatch(fetchCategories());
     dispatch(fetchGenders());
@@ -42,7 +47,7 @@ export default function NoticesFilters({ onFilterChange }) {
       initialValues={initialValues}
       onSubmit={(values) => onFilterChange(values)}
     >
-      {({ values, handleReset }) => (
+      {({ values, resetForm }) => (
         <Form className={css.filterWrap}>
           <SearchField
             onSearch={(query) => onFilterChange({ ...values, search: query })}
@@ -74,10 +79,15 @@ export default function NoticesFilters({ onFilterChange }) {
           />
 
           <RadioBtnSort
-            onChange={(value) => onFilterChange({ ...values, sort: value })}
+            onChange={(value) => {
+              onFilterChange({ ...values, sort: value });
+            }}
           />
-
-          <button type="button" className={css.resetBtn} onClick={handleReset}>
+          <button
+            type="button"
+            className={css.resetBtn}
+            onClick={() => handleReset(resetForm)}
+          >
             Reset
           </button>
         </Form>

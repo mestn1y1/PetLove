@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { fetchNotices } from "../../redux/notices/filtration";
 import { useNotices } from "../../hooks/useNotices";
 import LoaderCustom from "../../components/LoaderCustom/LoaderCustom";
+
 export default function NoticesPage() {
   const dispatch = useDispatch();
   const { notices, totalPagesNotices, isLoadNotices } = useNotices();
@@ -20,23 +21,36 @@ export default function NoticesPage() {
     location: "",
     sort: "popular",
   });
+
   const handleFilterChange = (newFilters) => {
+    console.log("New filters:", newFilters);
     setFilters(newFilters);
     setCurrentPage(1);
   };
 
   useEffect(() => {
-    dispatch(
-      fetchNotices({
-        page: currentPage,
-        keyword: filters.search,
-        category: filters.category,
-        species: filters.type,
-        locationId: filters.location,
-        radioSearch: filters.sort,
-        sex: filters.gender,
-      })
-    );
+    const queryParams = {
+      page: currentPage,
+      keyword: filters.search,
+      category: filters.category,
+      species: filters.type,
+      locationId: filters.location,
+      sex: filters.gender,
+      byPrice:
+        filters.sort === "cheap"
+          ? true
+          : filters.sort === "expensive"
+          ? false
+          : undefined,
+      byPopularity:
+        filters.sort === "popular"
+          ? false
+          : filters.sort === "unpopular"
+          ? true
+          : undefined,
+    };
+
+    dispatch(fetchNotices(queryParams));
   }, [filters, dispatch, currentPage]);
 
   return (
