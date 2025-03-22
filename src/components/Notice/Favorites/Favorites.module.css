@@ -1,5 +1,12 @@
 @media screen and (min-width: 1280px) {
   .noticeList {
     justify-content: start;
+    max-height: 744px;
+    overflow-y: auto;
+    padding-bottom: 40px;
+  }
+  .noticeList::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 }
