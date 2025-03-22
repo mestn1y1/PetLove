@@ -7,7 +7,7 @@ import LocationSelect from "./LocationSelect/LocationSelect";
 import RadioBtnSort from "./RadioBtnSort/RadioBtnSort";
 import css from "./NoticesFilters.module.css";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   fetchCategories,
   fetchCities,
@@ -17,12 +17,16 @@ import {
 
 export default function NoticesFilters({ onFilterChange }) {
   const dispatch = useDispatch();
+  const [locationKeyword, setLocationKeyword] = useState("");
+
   useEffect(() => {
     dispatch(fetchCategories());
     dispatch(fetchGenders());
     dispatch(fetchSpecies());
-    dispatch(fetchCities());
-  }, [dispatch]);
+    if (locationKeyword.length > 0) {
+      dispatch(fetchCities({ keyword: locationKeyword }));
+    }
+  }, [dispatch, locationKeyword]);
 
   const initialValues = {
     search: "",
@@ -43,8 +47,10 @@ export default function NoticesFilters({ onFilterChange }) {
           <SearchField
             onSearch={(query) => onFilterChange({ ...values, search: query })}
             onCancel={() => onFilterChange({ ...values, search: "" })}
+            className={css.searchBlock}
+            classNameInput={css.classNameInputForSearchBlock}
           />
-          <div className={css.selectFlex}>
+          <div className={css.genderAndCatehgoryWrap}>
             <CategorySelect
               onChange={(value) =>
                 onFilterChange({ ...values, category: value })
@@ -60,7 +66,11 @@ export default function NoticesFilters({ onFilterChange }) {
           />
 
           <LocationSelect
-            onChange={(value) => onFilterChange({ ...values, location: value })}
+            value={values.location}
+            onChange={(locationValue, keyword) => {
+              onFilterChange({ ...values, location: locationValue });
+              setLocationKeyword(keyword);
+            }}
           />
 
           <RadioBtnSort

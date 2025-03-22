@@ -26,7 +26,7 @@
   border-radius: 30px;
   padding: 10px 14px;
   height: 38px;
-  width: 80px;
+  width: fit-content;
   background: #f6b83d;
 }
 .userName {
@@ -35,6 +35,11 @@
   line-height: 129%;
   letter-spacing: -0.02em;
   color: #fff;
+  max-width: 120px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .userIcon {
   width: 18px;

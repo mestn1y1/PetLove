@@ -6,7 +6,11 @@ import LogOutBtn from "../../LogOutBtn/LogOutBtn";
 import { useState } from "react";
 
 import { Icons } from "../../Icons/Icons";
+import { useAuth } from "../../../hooks/useAuth";
 export default function UserCard() {
+  const {
+    user: { name },
+  } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -14,7 +18,9 @@ export default function UserCard() {
     <div className={css.containerUserCard}>
       <div className={css.wrapUserPanel}>
         <div className={css.userBadge}>
-          <p className={css.userName}>User</p>
+          <p className={css.userName}>
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+          </p>
           <Icons iconName="userW" className={css.userIcon} />
         </div>
         <EditUserBtn

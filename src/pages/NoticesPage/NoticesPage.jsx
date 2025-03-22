@@ -22,10 +22,21 @@ export default function NoticesPage() {
   });
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
-    dispatch(fetchNotices({ page: currentPage, filters }));
+    dispatch(
+      fetchNotices({
+        page: currentPage,
+        keyword: filters.search,
+        category: filters.category,
+        species: filters.type,
+        locationId: filters.location,
+        radioSearch: filters.sort,
+        sex: filters.gender,
+      })
+    );
   }, [filters, dispatch, currentPage]);
 
   return (
@@ -34,7 +45,13 @@ export default function NoticesPage() {
       <section className={css.noticePages}>
         <Title text="Find your favorite pet" />
         <NoticesFilters onFilterChange={handleFilterChange} />
-        <NoticesList items={notices} />
+        {notices.length > 0 ? (
+          <NoticesList items={notices} />
+        ) : (
+          <p className={css.textNotFound}>
+            Sorry, <b>no find</b> any notice for these search parameters!
+          </p>
+        )}
         <Pagination
           totalPages={totalPagesNotices}
           currentPage={currentPage}

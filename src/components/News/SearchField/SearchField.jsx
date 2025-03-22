@@ -3,7 +3,13 @@ import { toast } from "react-toastify";
 import { Icons } from "../../Icons/Icons";
 import css from "./SearchField.module.css";
 
-export default function SearchField({ onSearch, onCancel, isDisabled }) {
+export default function SearchField({
+  onSearch,
+  onCancel,
+  isDisabled,
+  className,
+  classNameInput,
+}) {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,10 +27,10 @@ export default function SearchField({ onSearch, onCancel, isDisabled }) {
   };
 
   return (
-    <div className={css.fieldWrap}>
+    <div className={`${css.fieldWrap} ${className || ""}`}>
       <input
         type="text"
-        className={css.searchFieldInput}
+        className={`${css.searchFieldInput} ${classNameInput || ""}`}
         placeholder="Search"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

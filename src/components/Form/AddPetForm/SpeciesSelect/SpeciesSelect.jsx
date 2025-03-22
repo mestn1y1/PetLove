@@ -47,6 +47,7 @@ export default function SpeciesSelect({ name }) {
                 onChange={handleChange}
                 options={speciesOptions}
                 placeholder="Type of pet"
+                isClearable={true}
                 classNamePrefix="react-select"
                 styles={customStyles(isChanged)}
               />

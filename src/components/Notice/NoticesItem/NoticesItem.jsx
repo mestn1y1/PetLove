@@ -14,6 +14,7 @@ import {
 import { viewedPet } from "../../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+
 export default function NoticesItem({ item, onRemove }) {
   const {
     birthday,
@@ -116,7 +117,14 @@ export default function NoticesItem({ item, onRemove }) {
         <Button
           text="Learn more"
           type="button"
-          onClick={openModal}
+          onClick={(e) => {
+            if (!isLoggedIn) {
+              e.preventDefault();
+              openAuthModal();
+            } else {
+              openModal();
+            }
+          }}
           className={`${css.btnMore} ${isViewed ? css.fullWidth : ""}`}
         />
         {!isViewed && (

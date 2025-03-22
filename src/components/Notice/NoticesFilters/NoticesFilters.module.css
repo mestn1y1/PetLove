@@ -1,15 +1,41 @@
 .filterWrap {
   margin-top: 40px;
   border-radius: 30px;
-  max-width: 335px;
+  width: 100%;
   height: 378px;
   background: #fff4df;
   padding: 20px;
 }
 
+.classNameInputForSearchBlock {
+  border: none;
+  background: #fff;
+}
+
+.classNameInputForSearchBlock:focus {
+  border: 1px solid #f6b83d;
+}
+
+.genderAndCatehgoryWrap {
+  display: flex;
+}
+.classNameInputForSearchBlock::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.03em;
+  color: #262626;
+}
+
 @media screen and (min-width: 768px) {
   .filterWrap {
-    max-width: 100%;
     height: 280px;
+  }
+  .searchBlock {
+    width: 265px;
+  }
+
+  .classNameInputForSearchBlock {
+    width: 100%;
   }
 }

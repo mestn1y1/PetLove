@@ -44,11 +44,28 @@ export const fetchSpecies = createAsyncThunk(
   }
 );
 
+// export const fetchCities = createAsyncThunk(
+//   "cities/fetchAll",
+//   async (thunkAPI) => {
+//     try {
+//       const response = await axios.get("/cities");
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const fetchCities = createAsyncThunk(
   "cities/fetchAll",
-  async (thunkAPI) => {
+  async ({ keyword }, thunkAPI) => {
+    // Принимаем keyword из аргумента
     try {
-      const response = await axios.get("/cities");
+      const response = await axios.get("/cities", {
+        params: {
+          keyword: keyword, // Передаем keyword в параметры запроса
+        },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
