@@ -39,7 +39,7 @@ export default function NoticesFilters({ onFilterChange }) {
     gender: "",
     type: "",
     location: "",
-    sort: "popular",
+    sort: "",
   };
 
   return (

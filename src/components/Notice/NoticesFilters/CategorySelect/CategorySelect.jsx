@@ -19,7 +19,31 @@ export default function CategorySelect({ onChange, value }) {
       styles={{
         container: (base) => ({
           ...base,
-          width: "200px",
+          width: "173px",
+          fontSize: "14px",
+          fontWeight: "500",
+          // "@media (min-width: 375px)": {
+          //   fontSize: "16px",
+          // },
+        }),
+        control: (base) => ({
+          ...base,
+          height: "42px",
+          border: "none",
+          borderRadius: "30px",
+          boxShadow: "none",
+        }),
+        menu: (base) => ({
+          ...base,
+          borderRadius: "10px",
+        }),
+        indicatorSeparator: (base) => ({
+          ...base,
+          display: "none",
+        }),
+        placeholder: (base) => ({
+          ...base,
+          color: "#262626",
         }),
       }}
     />

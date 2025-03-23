@@ -1,0 +1,41 @@
+.radioBtnSort {
+  margin-top: 10px;
+}
+
+.radioBtnSortOptions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.radioBtnSortLabel {
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  height: 42px;
+  width: auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.radioBtnSortLabel button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+.horizontLine {
+  color: rgba(38, 38, 38, 0.1);
+}
+
+.clearIcon {
+  width: 12px;
+  height: 12px;
+  stroke: #fff;
+}

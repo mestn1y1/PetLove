@@ -19,7 +19,7 @@ export default function NoticesPage() {
     gender: "",
     type: "",
     location: "",
-    sort: "popular",
+    sort: "",
   });
 
   const handleFilterChange = (newFilters) => {

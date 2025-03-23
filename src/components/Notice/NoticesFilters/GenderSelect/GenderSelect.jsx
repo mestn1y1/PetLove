@@ -16,7 +16,31 @@ export default function GenderSelect({ onChange, value }) {
       styles={{
         container: (base) => ({
           ...base,
-          width: "200px",
+          width: "193px",
+          fontSize: "14px",
+          fontWeight: "500",
+          // "@media (min-width: 375px)": {
+          //   fontSize: "16px",
+          // },
+        }),
+        control: (base) => ({
+          ...base,
+          height: "42px",
+          border: "none",
+          borderRadius: "30px",
+          boxShadow: "none",
+        }),
+        menu: (base) => ({
+          ...base,
+          borderRadius: "10px",
+        }),
+        indicatorSeparator: (base) => ({
+          ...base,
+          display: "none",
+        }),
+        placeholder: (base) => ({
+          ...base,
+          color: "#262626",
         }),
       }}
     />
