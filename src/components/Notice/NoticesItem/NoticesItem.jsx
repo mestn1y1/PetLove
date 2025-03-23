@@ -11,7 +11,7 @@ import {
   AddToFavorites,
   RemoveFromFavorites,
 } from "../../../redux/notices/operations";
-import { viewedPet } from "../../../redux/auth/operations";
+import { refreshUser, viewedPet } from "../../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -59,6 +59,7 @@ export default function NoticesItem({ item, onRemove }) {
       dispatch(AddToFavorites(_id));
       setIsFavorite(true);
     }
+    dispatch(refreshUser());
   };
 
   const openAuthModal = () => setIsAuthModalOpen(true);
