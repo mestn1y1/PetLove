@@ -1,20 +1,28 @@
 import Select from "react-select";
 import { useNotices } from "../../../../hooks/useNotices";
 
-export default function CategorySelect({ onChange, value }) {
+export default function CategorySelect({ field, form, onChange }) {
   const { categories } = useNotices();
-  const options = categories.map((category) => ({
-    value: category,
-    label: category.charAt(0).toUpperCase() + category.slice(1),
-  }));
 
-  const selectedOption = options.find((option) => option.value === value);
+  const options = [
+    { value: "", label: "Show all" },
+    ...categories.map((category) => ({
+      value: category,
+      label: category.charAt(0).toUpperCase() + category.slice(1),
+    })),
+  ];
+
+  const selectedOption = options.find((option) => option.value === field.value);
 
   return (
     <Select
       options={options}
       value={selectedOption}
-      onChange={(selected) => onChange(selected.value)}
+      onChange={(selected) => {
+        form.setFieldValue(field.name, selected.value);
+        onChange(selected.value);
+      }}
+      onBlur={field.onBlur}
       placeholder="Category"
       styles={{
         container: (base) => ({
@@ -22,9 +30,9 @@ export default function CategorySelect({ onChange, value }) {
           width: "173px",
           fontSize: "14px",
           fontWeight: "500",
-          // "@media (min-width: 375px)": {
-          //   fontSize: "16px",
-          // },
+          "@media (min-width: 768px)": {
+            fontSize: "16px",
+          },
         }),
         control: (base) => ({
           ...base,
@@ -32,6 +40,9 @@ export default function CategorySelect({ onChange, value }) {
           border: "none",
           borderRadius: "30px",
           boxShadow: "none",
+          "@media (min-width: 768px)": {
+            height: "48px",
+          },
         }),
         menu: (base) => ({
           ...base,

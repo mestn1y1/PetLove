@@ -1,5 +1,6 @@
 .radioBtnSort {
   margin-top: 10px;
+  width: 100%;
 }
 
 .radioBtnSortOptions {
@@ -38,4 +39,14 @@
   width: 12px;
   height: 12px;
   stroke: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .radioBtnSortLabel {
+    height: 48px;
+    font-size: 16px;
+  }
+  .radioBtnSortOptions {
+    margin-top: 20px;
+  }
 }

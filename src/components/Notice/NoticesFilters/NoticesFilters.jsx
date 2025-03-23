@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import SearchField from "../../News/SearchField/SearchField";
 import CategorySelect from "./CategorySelect/CategorySelect";
 import GenderSelect from "./GenderSelect/GenderSelect";
@@ -19,20 +19,6 @@ export default function NoticesFilters({ onFilterChange }) {
   const dispatch = useDispatch();
 
   const [locationKeyword, setLocationKeyword] = useState("");
-
-  const handleReset = (resetForm) => {
-    resetForm();
-    setLocationKeyword("");
-  };
-  useEffect(() => {
-    dispatch(fetchCategories());
-    dispatch(fetchGenders());
-    dispatch(fetchSpecies());
-    if (locationKeyword.length > 0) {
-      dispatch(fetchCities({ keyword: locationKeyword }));
-    }
-  }, [dispatch, locationKeyword]);
-
   const initialValues = {
     search: "",
     category: "",
@@ -42,12 +28,27 @@ export default function NoticesFilters({ onFilterChange }) {
     sort: "",
   };
 
+  const handleReset = (actions) => {
+    actions.resetForm();
+    setLocationKeyword("");
+    onFilterChange(initialValues);
+  };
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchGenders());
+    dispatch(fetchSpecies());
+    if (locationKeyword.length > 0) {
+      dispatch(fetchCities({ keyword: locationKeyword }));
+    }
+  }, [dispatch, locationKeyword]);
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values) => onFilterChange(values)}
     >
-      {({ values, resetForm }) => (
+      {({ values, resetForm, dirty }) => (
         <Form className={css.filterWrap}>
           <SearchField
             onSearch={(query) => onFilterChange({ ...values, search: query })}
@@ -56,40 +57,49 @@ export default function NoticesFilters({ onFilterChange }) {
             classNameInput={css.classNameInputForSearchBlock}
           />
           <div className={css.genderAndCatehgoryWrap}>
-            <CategorySelect
+            <Field
+              name="category"
+              component={CategorySelect}
               onChange={(value) =>
                 onFilterChange({ ...values, category: value })
               }
             />
-            <GenderSelect
+            <Field
+              name="gender"
+              component={GenderSelect}
               onChange={(value) => onFilterChange({ ...values, gender: value })}
             />
           </div>
 
-          <TypeSelect
+          <Field
+            name="type"
+            component={TypeSelect}
             onChange={(value) => onFilterChange({ ...values, type: value })}
           />
 
-          <LocationSelect
-            value={values.location}
-            onChange={(locationValue, keyword) => {
-              onFilterChange({ ...values, location: locationValue });
-              setLocationKeyword(keyword);
-            }}
+          <Field
+            name="location"
+            component={LocationSelect}
+            onChange={(value) => onFilterChange({ ...values, location: value })}
+            locationKeyword={locationKeyword}
+            setLocationKeyword={setLocationKeyword}
           />
 
-          <RadioBtnSort
-            onChange={(value) => {
-              onFilterChange({ ...values, sort: value });
-            }}
+          <Field
+            name="sort"
+            component={RadioBtnSort}
+            onChange={(value) => onFilterChange({ ...values, sort: value })}
           />
-          <button
-            type="button"
-            className={css.resetBtn}
-            onClick={() => handleReset(resetForm)}
-          >
-            Reset
-          </button>
+
+          {dirty && (
+            <button
+              type="button"
+              className={css.resetBtn}
+              onClick={() => handleReset({ resetForm })}
+            >
+              Reset
+            </button>
+          )}
         </Form>
       )}
     </Formik>
