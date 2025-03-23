@@ -13,3 +13,10 @@
     padding-right: 12px;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .wrapBlock {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}

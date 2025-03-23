@@ -188,5 +188,7 @@
   .form {
     width: 592px;
     padding: 118px 84px;
+    height: 654px;
+    margin-top: 0;
   }
 }

@@ -2,6 +2,7 @@
   width: 100%;
   border-radius: 30px;
   padding: 20px;
+  background: #fff;
 }
 .inputPhoto {
   width: 280px;
@@ -127,6 +128,7 @@
     margin: 0 auto;
     width: 704px;
     padding: 40px 126px;
+    border-radius: 60px;
   }
   .inputText {
     height: 52px;

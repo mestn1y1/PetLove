@@ -13,7 +13,7 @@ export default function FriendsPage() {
     dispatch(fetchFriends());
   }, [dispatch]);
   return (
-    <section>
+    <section className={css.friendsPage}>
       <Title text="Our friends" />
       <FriendsList />
     </section>

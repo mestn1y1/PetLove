@@ -1,1 +1,13 @@
-.container { padding: 10px; border: 1px solid #ddd; }
+@media screen and (min-width: 768px) {
+  .friendsPage {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .friendsPage {
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}

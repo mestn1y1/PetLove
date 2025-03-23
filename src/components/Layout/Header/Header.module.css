@@ -46,13 +46,14 @@
     padding-left: 96px;
     padding-right: 96px;
     padding-top: 32px;
-    max-width: 1920px;
+    width: 1280px;
     margin: 0 auto;
   }
   .header {
     padding-left: 64px;
     padding-right: 64px;
-    max-width: 1920px;
+    width: 1280px;
+    margin: 0 auto;
   }
 
   .navContainer {

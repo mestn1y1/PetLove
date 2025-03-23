@@ -139,6 +139,7 @@
   .form {
     padding: 70px 140px;
     margin-top: 16px;
+    border-radius: 60px;
   }
 
   .buttonSubmit {
@@ -181,5 +182,6 @@
   .form {
     width: 592px;
     padding: 118px 84px;
+    margin-top: 0;
   }
 }
