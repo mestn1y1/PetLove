@@ -2,7 +2,7 @@ import { Icons } from "../../Icons/Icons";
 import { Button } from "../../Button/Button";
 import css from "./NoticesItem.module.css";
 import { formatDate } from "../../../helpers/formaterDate";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ModalWrap } from "../../Modals/ModalWrap/ModalWrap";
 import ModalNotice from "../../Modals/ModalNotice/ModalNotice";
 import ModalAtention from "../../Modals/ModalAttention/ModalAttention";
@@ -35,29 +35,23 @@ export default function NoticesItem({ item, onRemove }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { isLoggedIn, favoritesNotices } = useAuth();
   const isViewed = location.pathname === "/profile/viewed";
-  const [isFavorite, setIsFavorite] = useState(
-    favoritesNotices.some((favItem) => favItem._id === _id)
-  );
 
-  useEffect(() => {
-    setIsFavorite(favoritesNotices.some((favItem) => favItem._id === _id));
-  }, [favoritesNotices, _id]);
+  const isFavorite = favoritesNotices.some((favItem) => favItem._id === _id);
 
   const handleFavoriteClick = () => {
     if (!isLoggedIn) {
       openAuthModal();
       return;
     }
-
     if (isFavorite) {
       dispatch(RemoveFromFavorites(_id));
-      setIsFavorite(false);
+      dispatch(refreshUser());
       if (onRemove) {
         onRemove(_id);
       }
     } else {
       dispatch(AddToFavorites(_id));
-      setIsFavorite(true);
+      dispatch(refreshUser());
     }
     dispatch(refreshUser());
   };
