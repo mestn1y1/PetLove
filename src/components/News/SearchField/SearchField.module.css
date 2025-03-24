@@ -11,8 +11,12 @@
   padding-right: 40px;
   width: 100%;
   height: 42px;
+  transition: border 0.2s;
 }
 
+.searchFieldInput:hover {
+  border: 1px solid #f6b83d;
+}
 .searchFieldInput::placeholder {
   font-weight: 500;
   font-size: 14px;

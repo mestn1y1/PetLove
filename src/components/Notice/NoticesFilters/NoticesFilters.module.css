@@ -11,11 +11,13 @@
 }
 
 .classNameInputForSearchBlock {
-  border: none;
+  border: transparent;
   background: #fff;
+  transition: border 0.2s;
 }
 
-.classNameInputForSearchBlock:focus {
+.classNameInputForSearchBlock:focus,
+.classNameInputForSearchBlock:hover {
   border: 1px solid #f6b83d;
 }
 

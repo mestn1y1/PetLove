@@ -22,6 +22,7 @@
   justify-content: center;
   gap: 4px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .radioBtnSortLabel button {
@@ -35,6 +36,9 @@
   color: rgba(38, 38, 38, 0.1);
 }
 
+.radioBtnSortLabel:hover {
+  background: #fbe7c1;
+}
 .clearIcon {
   width: 12px;
   height: 12px;

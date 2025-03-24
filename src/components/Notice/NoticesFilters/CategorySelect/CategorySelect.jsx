@@ -37,12 +37,19 @@ export default function CategorySelect({ field, form, onChange }) {
             fontSize: "16px",
           },
         }),
-        control: (base) => ({
+        control: (base, { isFocused, isHovered }) => ({
           ...base,
           height: "42px",
-          border: "none",
           borderRadius: "30px",
           boxShadow: "none",
+          border:
+            isFocused || isHovered
+              ? "1px solid #f6b83d"
+              : "1px solid transparent",
+          transition: "border 0.2s, box-shadow 0.2s",
+          ":hover": {
+            border: "1px solid #f6b83d",
+          },
           "@media (min-width: 768px)": {
             height: "48px",
           },
@@ -53,7 +60,7 @@ export default function CategorySelect({ field, form, onChange }) {
           border: "none",
           boxShadow: "none",
           outline: "none",
-          maxHeight: "146px",
+          height: "146px",
           overflowY: "scroll",
           overflowX: "hidden",
           color: "rgba(38, 38, 38, 0.6)",
@@ -62,6 +69,9 @@ export default function CategorySelect({ field, form, onChange }) {
           WebkitOverflowScrolling: "touch",
           "&::-webkit-scrollbar": {
             display: "none",
+          },
+          "@media (min-width: 768px)": {
+            height: "160px",
           },
         }),
         option: (provided, state) => ({

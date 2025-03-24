@@ -131,6 +131,9 @@
     white-space: normal;
     width: auto;
   }
+  .itemComent {
+    height: 36px;
+  }
 }
 @media screen and (min-width: 768px) {
   .itemComent {

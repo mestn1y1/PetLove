@@ -76,15 +76,18 @@ export default function NoticesFilters({ onFilterChange }) {
             component={TypeSelect}
             onChange={(value) => onFilterChange({ ...values, type: value })}
           />
-
           <Field
             name="location"
             component={LocationSelect}
-            onChange={(value) => onFilterChange({ ...values, location: value })}
-            locationKeyword={locationKeyword}
             setLocationKeyword={setLocationKeyword}
+            onChange={(selectedOption) => {
+              // Оновлюємо значення в Formik та викликаємо фільтрацію
+              onFilterChange({
+                ...values,
+                location: selectedOption?.value || "",
+              });
+            }}
           />
-
           <Field
             name="sort"
             component={RadioBtnSort}

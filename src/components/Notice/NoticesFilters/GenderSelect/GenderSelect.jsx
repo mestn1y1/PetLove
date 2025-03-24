@@ -37,10 +37,17 @@ export default function GenderSelect({ onChange, field, form }) {
             width: "180px",
           },
         }),
-        control: (base) => ({
+        control: (base, { isFocused, isHovered }) => ({
           ...base,
           height: "42px",
-          border: "none",
+          border:
+            isFocused || isHovered
+              ? "1px solid #f6b83d"
+              : "1px solid transparent",
+          transition: "border 0.2s, box-shadow 0.2s",
+          ":hover": {
+            border: "1px solid #f6b83d",
+          },
           borderRadius: "30px",
           boxShadow: "none",
           "@media (min-width: 768px)": {
@@ -53,7 +60,7 @@ export default function GenderSelect({ onChange, field, form }) {
           border: "none",
           boxShadow: "none",
           outline: "none",
-          maxHeight: "146px",
+          height: "146px",
           overflowY: "scroll",
           overflowX: "hidden",
           color: "rgba(38, 38, 38, 0.6)",
@@ -61,23 +68,24 @@ export default function GenderSelect({ onChange, field, form }) {
           whiteSpace: "nowrap",
           WebkitOverflowScrolling: "touch",
           "&::-webkit-scrollbar": {
-            display: "none",
+            width: "6px",
+          },
+          "@media (min-width: 768px)": {
+            height: "160px",
           },
         }),
         option: (provided, state) => ({
           ...provided,
           margin: "0",
           padding: "10px",
-          backgroundColor: state.isFocused
-            ? "#F6B83D" // при hover (фокусе) оранжевый фон
-            : "transparent",
+          backgroundColor: state.isFocused ? "#F6B83D" : "transparent",
           color: state.isFocused
-            ? "#fff" // при hover текст белый
+            ? "#fff"
             : state.isSelected
             ? "#F6B83D"
             : "rgba(38, 38, 38, 0.6)",
           cursor: "pointer",
-          borderRadius: state.isFocused ? "15px" : "0", // закругляем углы при hover
+          borderRadius: state.isFocused ? "15px" : "0",
           transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),
         indicatorSeparator: (base) => ({
