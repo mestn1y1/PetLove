@@ -47,8 +47,10 @@
     padding-right: 96px;
     padding-top: 32px;
     width: 1280px;
-    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
+
   .header {
     padding-left: 64px;
     padding-right: 64px;

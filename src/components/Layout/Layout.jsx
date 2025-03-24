@@ -21,11 +21,15 @@ export default function Layout() {
   }, [loading]);
 
   return (
-    <>
-      {!loading && <Header />}
+    <div className={css.pageContainer}>
+      {!loading && (
+        <>
+          <Header />
+        </>
+      )}
       <main className={loading ? css.loading : css.loaded}>
         {loading ? <SplashScreen /> : <Outlet />}
       </main>
-    </>
+    </div>
   );
 }
