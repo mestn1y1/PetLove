@@ -12,7 +12,10 @@ export default function CategorySelect({ field, form, onChange }) {
     })),
   ];
 
-  const selectedOption = options.find((option) => option.value === field.value);
+  const selectedOption =
+    field.value === ""
+      ? null
+      : options.find((option) => option.value === field.value);
 
   return (
     <Select
@@ -46,13 +49,44 @@ export default function CategorySelect({ field, form, onChange }) {
         }),
         menu: (base) => ({
           ...base,
-          borderRadius: "10px",
+          borderRadius: "15px",
+          border: "none",
+          boxShadow: "none",
+          outline: "none",
+          maxHeight: "146px",
+          overflowY: "scroll",
+          overflowX: "hidden",
+          color: "rgba(38, 38, 38, 0.6)",
+          boxSizing: "border-box",
+          whiteSpace: "nowrap",
+          WebkitOverflowScrolling: "touch",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }),
+        option: (provided, state) => ({
+          ...provided,
+          margin: "0",
+          padding: "10px",
+          backgroundColor: state.isFocused ? "#F6B83D" : "transparent",
+          color: state.isFocused
+            ? "#fff"
+            : state.isSelected
+            ? "#F6B83D"
+            : "rgba(38, 38, 38, 0.6)",
+          cursor: "pointer",
+          borderRadius: state.isFocused ? "15px" : "0",
+          transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),
         indicatorSeparator: (base) => ({
           ...base,
           display: "none",
         }),
         placeholder: (base) => ({
+          ...base,
+          color: "#262626",
+        }),
+        singleValue: (base) => ({
           ...base,
           color: "#262626",
         }),

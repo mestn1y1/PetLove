@@ -11,11 +11,12 @@ export default function GenderSelect({ onChange, field, form }) {
       label: genders.charAt(0).toUpperCase() + genders.slice(1),
     })),
   ];
+  const selectedOption =
+    field.value === ""
+      ? null
+      : options.find((option) => option.value === field.value);
 
-  const selectedOption = options.find((option) => option.value === field.value);
-  
   return (
-
     <Select
       options={options}
       value={selectedOption}
@@ -33,6 +34,7 @@ export default function GenderSelect({ onChange, field, form }) {
           fontWeight: "500",
           "@media (min-width: 768px)": {
             fontSize: "16px",
+            width: "180px",
           },
         }),
         control: (base) => ({
@@ -47,13 +49,46 @@ export default function GenderSelect({ onChange, field, form }) {
         }),
         menu: (base) => ({
           ...base,
-          borderRadius: "10px",
+          borderRadius: "15px",
+          border: "none",
+          boxShadow: "none",
+          outline: "none",
+          maxHeight: "146px",
+          overflowY: "scroll",
+          overflowX: "hidden",
+          color: "rgba(38, 38, 38, 0.6)",
+          boxSizing: "border-box",
+          whiteSpace: "nowrap",
+          WebkitOverflowScrolling: "touch",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }),
+        option: (provided, state) => ({
+          ...provided,
+          margin: "0",
+          padding: "10px",
+          backgroundColor: state.isFocused
+            ? "#F6B83D" // при hover (фокусе) оранжевый фон
+            : "transparent",
+          color: state.isFocused
+            ? "#fff" // при hover текст белый
+            : state.isSelected
+            ? "#F6B83D"
+            : "rgba(38, 38, 38, 0.6)",
+          cursor: "pointer",
+          borderRadius: state.isFocused ? "15px" : "0", // закругляем углы при hover
+          transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),
         indicatorSeparator: (base) => ({
           ...base,
           display: "none",
         }),
         placeholder: (base) => ({
+          ...base,
+          color: "#262626",
+        }),
+        singleValue: (base) => ({
           ...base,
           color: "#262626",
         }),

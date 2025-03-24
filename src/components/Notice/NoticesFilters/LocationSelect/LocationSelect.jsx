@@ -95,7 +95,10 @@ export default function LocationSelect({ value, onChange }) {
           }),
           menu: (base) => ({
             ...base,
-            borderRadius: "10px",
+            borderRadius: "15px",
+            border: "none",
+            boxShadow: "none",
+            outline: "none",
           }),
           indicatorSeparator: (base) => ({
             ...base,

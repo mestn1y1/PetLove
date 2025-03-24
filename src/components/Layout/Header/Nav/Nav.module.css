@@ -11,8 +11,9 @@
 }
 
 .button {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +77,8 @@
   right: 20px;
   fill: transparent;
   stroke: #262626;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
 }
 
 .iconCloseWight {

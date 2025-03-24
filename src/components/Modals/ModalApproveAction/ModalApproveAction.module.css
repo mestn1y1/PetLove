@@ -11,12 +11,15 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
 }
 .closeBtnIcon {
   stroke: #262626;
-  stroke-width: 2px;
-  width: 24px;
-  height: 24px;
+  stroke-width: 1px;
+  width: 18px;
+  height: 18px;
 }
 .imgWrap {
   width: 80px;
