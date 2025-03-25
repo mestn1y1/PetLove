@@ -17,6 +17,10 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #f6b83d;
+  transition: var(--butonAnimation);
+}
+.btnClassName:hover {
+  background: #fbe7c1;
 }
 
 .userBadge {

@@ -5,6 +5,7 @@ import css from "./Nav.module.css";
 import AuthNav from "../AuthNav/AuthNav";
 import UserNav from "../UserNav/UserNav";
 import { useAuth } from "../../../../hooks/useAuth";
+import classNames from "classnames";
 
 const navLinks = [
   { to: "/news", label: "News" },
@@ -42,11 +43,17 @@ export default function Nav() {
     <nav className={css.nav}>
       <ul className={css.navListDesc}>
         {navLinks.map(({ to, label }) => (
-          <li
-            key={to}
-            className={isHome ? css.navListItem : css.navListItemHeader}
-          >
-            <NavLink to={to}>{label}</NavLink>
+          <li key={to}>
+            <NavLink
+              to={to}
+              className={classNames({
+                [css.navListItem]: isHome,
+                [css.navListItemHeader]: !isHome,
+                [css.active]: !isHome && location.pathname === to, // Добавляем активный класс, если путь совпадает
+              })}
+            >
+              {label}
+            </NavLink>
           </li>
         ))}
       </ul>

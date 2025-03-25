@@ -23,6 +23,11 @@
   line-height: 125%;
   letter-spacing: -0.03em;
   color: #fff;
+  transition: var(--butonAnimation);
+}
+
+.linkTo:hover {
+  background: #f9b020;
 }
 
 .icon {

@@ -61,8 +61,12 @@
 .cancelBtn {
   background: rgba(38, 38, 38, 0.05);
   color: #262626;
+  transition: var(--butonAnimation);
 }
 
+.cancelBtn:hover {
+  background: #fbe7c1;
+}
 @media screen and (min-width: 375px) {
   .modalContainer {
     width: 335px;

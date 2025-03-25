@@ -12,12 +12,16 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  transition: var(--butonAnimation);
 }
 .petBtnIcon {
   width: 16px;
   height: 16px;
 }
 
+.petDeleteBtn:hover {
+  background: #fbe7c1;
+}
 .petTitle {
   font-weight: 700;
   font-size: 12px;

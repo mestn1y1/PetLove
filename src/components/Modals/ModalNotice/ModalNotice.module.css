@@ -160,8 +160,11 @@
   letter-spacing: -0.03em;
   color: #f6b83d;
   text-align: center;
+  transition: var(--butonAnimation);
 }
-
+.linkContact:hover {
+  background: #fbe7c1;
+}
 @media screen and (min-width: 375px) {
   .modalWrap {
     width: 335px;

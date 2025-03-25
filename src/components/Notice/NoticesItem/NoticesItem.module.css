@@ -108,6 +108,11 @@
   height: 46px;
   background: #fff4df;
   padding: 14px;
+  transition: var(--butonAnimation);
+}
+
+.btnFavorite:hover {
+  background: #fbe7c1;
 }
 
 .iconHeartStroke {

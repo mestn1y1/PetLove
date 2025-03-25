@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: var(--butonAnimation);
+}
+.btn:hover {
+  background: #f9b020;
 }
 
 @media screen and (min-width: 768px) {

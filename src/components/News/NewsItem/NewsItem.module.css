@@ -35,8 +35,12 @@
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #f6b83d;
+  transition: var(--colorTextAnimation);
 }
 
+.newsItemLink:hover {
+  color: rgba(38, 38, 38, 0.4);
+}
 .wrapContainer {
   display: flex;
   justify-content: space-between;

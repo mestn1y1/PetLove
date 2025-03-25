@@ -18,6 +18,11 @@
   letter-spacing: -0.03em;
   color: #262626;
   text-align: center;
+  transition: var(--butonAnimation), var(--colorTextAnimation);
+}
+.tab:hover {
+  background: #fbe7c1;
+  color: #f6b83d;
 }
 
 .activeTab {
@@ -63,6 +68,6 @@
 
 @media screen and (min-width: 1280px) {
   .content {
-  overflow: hidden;
+    overflow: hidden;
   }
 }

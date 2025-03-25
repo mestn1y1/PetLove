@@ -110,11 +110,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: var(--borderAnimation);
 }
 
 .navListItemWhite {
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #fff;
+  transition: var(--borderAnimation);
+}
+.navListItem:hover,
+.navListItemHeader:hover {
+  border: 1px solid rgba(208, 203, 203, 0.4);
 }
 
 @media screen and (min-width: 768px) {
@@ -192,5 +198,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .active {
+    border: 1px solid #f6b83d;
   }
 }
