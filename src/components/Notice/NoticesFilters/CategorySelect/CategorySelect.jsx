@@ -1,6 +1,6 @@
 import Select from "react-select";
 import { useNotices } from "../../../../hooks/useNotices";
-
+import customDropDownIndicatorForAll from "../customDropDownIndicatorForAll";
 export default function CategorySelect({ field, form, onChange }) {
   const { categories } = useNotices();
 
@@ -27,6 +27,9 @@ export default function CategorySelect({ field, form, onChange }) {
       }}
       onBlur={field.onBlur}
       placeholder="Category"
+      components={{
+        DropdownIndicator: customDropDownIndicatorForAll, 
+      }}
       styles={{
         container: (base) => ({
           ...base,
@@ -42,6 +45,7 @@ export default function CategorySelect({ field, form, onChange }) {
           height: "42px",
           borderRadius: "30px",
           boxShadow: "none",
+          outline: "none",
           border:
             isFocused || isHovered
               ? "1px solid #f6b83d"
@@ -71,7 +75,7 @@ export default function CategorySelect({ field, form, onChange }) {
             display: "none",
           },
           "@media (min-width: 768px)": {
-            height: "160px",
+            height: "180px",
           },
         }),
         option: (provided, state) => ({
@@ -85,6 +89,11 @@ export default function CategorySelect({ field, form, onChange }) {
             ? "#F6B83D"
             : "rgba(38, 38, 38, 0.6)",
           cursor: "pointer",
+          boxShadow: "none",
+          outline: "none",
+          ":active": {
+            backgroundColor: "transparent",
+          },
           borderRadius: state.isFocused ? "15px" : "0",
           transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),

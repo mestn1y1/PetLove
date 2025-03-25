@@ -68,7 +68,6 @@ export default function LocationSelect({ field, form, setLocationKeyword }) {
           width: "100%",
           fontSize: "14px",
           fontWeight: "500",
-
           "@media (min-width: 768px)": {
             fontSize: "16px",
             width: "240px",
@@ -83,24 +82,14 @@ export default function LocationSelect({ field, form, setLocationKeyword }) {
               : "1px solid transparent",
           borderRadius: "30px",
           boxShadow: "none",
+          outline: "none",
           transition: "border 0.2s, box-shadow 0.2s",
           ":hover": {
             border: "1px solid #f6b83d",
           },
           "@media (min-width: 768px)": {
             height: "48px",
-            width: "240px",
           },
-        }),
-        clearIndicator: (base) => ({
-          ...base,
-          marginRight: "4px",
-          padding: "0",
-        }),
-        dropdownIndicator: (base) => ({
-          ...base,
-          marginRight: "12px",
-          padding: "0",
         }),
         menu: (base) => ({
           ...base,
@@ -108,7 +97,35 @@ export default function LocationSelect({ field, form, setLocationKeyword }) {
           border: "none",
           boxShadow: "none",
           outline: "none",
-          width: "100%",
+          height: "auto",
+          overflowY: "auto",
+          overflowX: "hidden",
+          color: "rgba(38, 38, 38, 0.6)",
+          boxSizing: "border-box",
+          whiteSpace: "nowrap",
+          WebkitOverflowScrolling: "touch",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }),
+        option: (provided, state) => ({
+          ...provided,
+          margin: "0",
+          padding: "10px",
+          boxShadow: "none",
+          outline: "none",
+          ":active": {
+            backgroundColor: "transparent",
+          },
+          backgroundColor: state.isFocused ? "#F6B83D" : "transparent",
+          color: state.isFocused
+            ? "#fff"
+            : state.isSelected
+            ? "#F6B83D"
+            : "rgba(38, 38, 38, 0.6)",
+          cursor: "pointer",
+          borderRadius: state.isFocused ? "15px" : "0",
+          transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),
         indicatorSeparator: (base) => ({
           ...base,
@@ -117,6 +134,23 @@ export default function LocationSelect({ field, form, setLocationKeyword }) {
         placeholder: (base) => ({
           ...base,
           color: "#262626",
+        }),
+        singleValue: (base) => ({
+          ...base,
+          color: "#262626",
+        }),
+        dropdownIndicator: (base) => ({
+          ...base,
+          padding: "0",
+          paddingRight: "12px",
+          ":hover": {
+            color: "#f6b83d",
+          },
+        }),
+        clearIndicator: (base) => ({
+          ...base,
+          padding: "0",
+          paddingRight: "4px",
         }),
       }}
     />

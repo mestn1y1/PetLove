@@ -1,5 +1,7 @@
 import Select from "react-select";
 import { useNotices } from "../../../../hooks/useNotices";
+import customDropDownIndicatorForAll from "../customDropDownIndicatorForAll";
+
 export default function TypeSelect({ onChange, form, field }) {
   const { species } = useNotices();
   const options = [
@@ -21,6 +23,9 @@ export default function TypeSelect({ onChange, form, field }) {
       onChange={(selected) => {
         form.setFieldValue(field.name, selected.value);
         onChange(selected.value);
+      }}
+      components={{
+        DropdownIndicator: customDropDownIndicatorForAll,
       }}
       onBlur={field.onBlur}
       placeholder="By type"
@@ -44,6 +49,7 @@ export default function TypeSelect({ onChange, form, field }) {
               : "1px solid transparent",
           borderRadius: "30px",
           boxShadow: "none",
+          outline: "none",
           transition: "border 0.2s, box-shadow 0.2s",
           ":hover": {
             border: "1px solid #f6b83d",
@@ -59,7 +65,7 @@ export default function TypeSelect({ onChange, form, field }) {
           boxShadow: "none",
           outline: "none",
           height: "216px",
-          overflowY: "scroll",
+          overflowY: "auto",
           overflowX: "hidden",
           color: "rgba(38, 38, 38, 0.6)",
           boxSizing: "border-box",
@@ -68,11 +74,22 @@ export default function TypeSelect({ onChange, form, field }) {
           "&::-webkit-scrollbar": {
             display: "none",
           },
+          "&::-webkit-scrollbar-thumb": {
+            display: "none",
+          },
+          "&::-webkit-scrollbar-track": {
+            display: "none",
+          },
         }),
         option: (provided, state) => ({
           ...provided,
           margin: "0",
           padding: "10px",
+          boxShadow: "none",
+          outline: "none",
+          ":active": {
+            backgroundColor: "transparent",
+          },
           backgroundColor: state.isFocused ? "#F6B83D" : "transparent",
           color: state.isFocused
             ? "#fff"

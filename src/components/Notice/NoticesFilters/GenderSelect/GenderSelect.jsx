@@ -1,5 +1,6 @@
 import Select from "react-select";
 import { useNotices } from "../../../../hooks/useNotices";
+import customDropDownIndicatorForAll from "../customDropDownIndicatorForAll";
 
 export default function GenderSelect({ onChange, field, form }) {
   const { genders } = useNotices();
@@ -25,6 +26,9 @@ export default function GenderSelect({ onChange, field, form }) {
         onChange(selected.value);
       }}
       onBlur={field.onBlur}
+      components={{
+        DropdownIndicator: customDropDownIndicatorForAll,
+      }}
       placeholder="By gender"
       styles={{
         container: (base) => ({
@@ -50,6 +54,7 @@ export default function GenderSelect({ onChange, field, form }) {
           },
           borderRadius: "30px",
           boxShadow: "none",
+          outline: "none",
           "@media (min-width: 768px)": {
             height: "48px",
           },
@@ -68,10 +73,10 @@ export default function GenderSelect({ onChange, field, form }) {
           whiteSpace: "nowrap",
           WebkitOverflowScrolling: "touch",
           "&::-webkit-scrollbar": {
-            width: "6px",
+            display: "none",
           },
           "@media (min-width: 768px)": {
-            height: "160px",
+            height: "180px",
           },
         }),
         option: (provided, state) => ({
@@ -85,6 +90,11 @@ export default function GenderSelect({ onChange, field, form }) {
             ? "#F6B83D"
             : "rgba(38, 38, 38, 0.6)",
           cursor: "pointer",
+          boxShadow: "none",
+          outline: "none",
+          ":active": {
+            backgroundColor: "transparent",
+          },
           borderRadius: state.isFocused ? "15px" : "0",
           transition: "background-color 0.2s ease, border-radius 0.2s ease",
         }),
