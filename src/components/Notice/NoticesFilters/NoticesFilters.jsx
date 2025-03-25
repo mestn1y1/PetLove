@@ -81,7 +81,6 @@ export default function NoticesFilters({ onFilterChange }) {
             component={LocationSelect}
             setLocationKeyword={setLocationKeyword}
             onChange={(selectedOption) => {
-              // Оновлюємо значення в Formik та викликаємо фільтрацію
               onFilterChange({
                 ...values,
                 location: selectedOption?.value || "",

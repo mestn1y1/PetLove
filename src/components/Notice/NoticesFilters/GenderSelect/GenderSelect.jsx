@@ -106,6 +106,10 @@ export default function GenderSelect({ onChange, field, form }) {
           ...base,
           color: "#262626",
         }),
+        dropdownIndicator: (base) => ({
+          ...base,
+          paddingLeft: "0",
+        }),
         singleValue: (base) => ({
           ...base,
           color: "#262626",
