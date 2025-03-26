@@ -4,15 +4,20 @@ import NoticesFilters from "../../components/Notice/NoticesFilters/NoticesFilter
 import NoticesList from "../../components/Notice/NoticesList/NoticesList";
 import Pagination from "../../components/Pagination/Pagination";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchNotices } from "../../redux/notices/filtration";
 import { useNotices } from "../../hooks/useNotices";
 import LoaderCustom from "../../components/LoaderCustom/LoaderCustom";
-
+import { useAuth } from "../../hooks/useAuth";
+import { ModalWrap } from "../../components/Modals/ModalWrap/ModalWrap";
+import ModalCongrats from "../../components/Modals/ModalCongrats/ModalCongrats";
 export default function NoticesPage() {
   const dispatch = useDispatch();
   const { notices, totalPagesNotices, isLoadNotices } = useNotices();
+  const { favoritesNotices } = useAuth();
   const [currentPage, setCurrentPage] = useState(1);
+  const [congratsModalOpen, setCongratsModalOpen] = useState(false);
+  const prevFavoritesLength = useRef(0);
   const [filters, setFilters] = useState({
     search: "",
     category: "",
@@ -21,6 +26,15 @@ export default function NoticesPage() {
     location: "",
     sort: "",
   });
+
+  useEffect(() => {
+    if (prevFavoritesLength.current === 0 && favoritesNotices.length > 0) {
+      setCongratsModalOpen(true);
+    }
+    prevFavoritesLength.current = favoritesNotices.length;
+  }, [favoritesNotices.length]);
+
+  const closeCongratsModal = () => setCongratsModalOpen(false);
 
   const handleFilterChange = (newFilters) => {
     console.log("New filters:", newFilters);
@@ -71,6 +85,14 @@ export default function NoticesPage() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
+        {congratsModalOpen && (
+          <ModalWrap
+            isOpen={congratsModalOpen}
+            handleClose={closeCongratsModal}
+          >
+            <ModalCongrats closeModal={closeCongratsModal} />
+          </ModalWrap>
+        )}
       </section>
     </>
   );

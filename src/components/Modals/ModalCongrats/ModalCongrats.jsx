@@ -1,8 +1,14 @@
 import { Button } from "../../Button/Button";
 import { Icons } from "../../Icons/Icons";
+import { useNavigate } from "react-router-dom";
 import css from "./ModalCongrats.module.css";
 
 export default function ModalCongrats({ closeModal }) {
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    closeModal();
+    navigate("/profile");
+  };
   return (
     <div className={css.modalWrap}>
       <button className={css.closeBtn} onClick={closeModal}>
@@ -19,7 +25,7 @@ export default function ModalCongrats({ closeModal }) {
       <Button
         type="button"
         text="Go to profile"
-        onClick={closeModal}
+        onClick={handleRedirect}
         className={css.btnRedirect}
       />
     </div>
