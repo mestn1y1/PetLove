@@ -64,6 +64,7 @@ export default function DateInput({ name, value, setFieldValue, ...props }) {
           onFocus={handleFocus}
           onBlur={handleBlur}
           ref={inputRef}
+          popperClassName={css.datePickerPopper}
         />
         <button
           type="button"
