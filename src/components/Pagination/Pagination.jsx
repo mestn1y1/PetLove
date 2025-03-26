@@ -42,7 +42,7 @@ export default function Pagination({
     }
 
     return result;
-  }, [currentPage, totalPages]);
+  }, [currentPage, totalPages, pageNumbers]);
 
   const handlePageChange = (page) => {
     if (page === "...") return;

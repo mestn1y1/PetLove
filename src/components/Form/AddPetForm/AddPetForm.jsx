@@ -10,7 +10,6 @@ import {validationSchemaAddPet} from "../../../validationSchemas/validationSchem
 import { Button } from "../../Button/Button";
 import DateInput from "./DateInput/DateInput";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { addPet } from "../../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";
 

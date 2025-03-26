@@ -22,7 +22,6 @@ const AddPet = lazy(() => import("../../pages/AddPetPage/AddPetPage"));
 const Viewed = lazy(() => import("../Notice/Viewed/Viewed"));
 const Favorites = lazy(() => import("../Notice/Favorites/Favorites"));
 
-import css from "./App.module.css";
 import LoaderCustom from "../LoaderCustom/LoaderCustom";
 
 export default function App() {

@@ -33,9 +33,6 @@ export default function ModalEditUser({ handleClose }) {
     }
     actions.setSubmitting(false);
   };
-  const handleBackClick = () => {
-    navigate("/profile");
-  };
 
   return (
     <Formik

@@ -48,7 +48,7 @@ export default function SpeciesSelect({ name }) {
                 options={speciesOptions}
                 placeholder="Type of pet"
                 components={{
-                  DropdownIndicator: customDropDownIndicatorForAll, // Используем кастомный индикатор
+                  DropdownIndicator: customDropDownIndicatorForAll,
                 }}
                 classNamePrefix="react-select"
                 styles={{

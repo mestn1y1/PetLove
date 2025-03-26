@@ -49,7 +49,7 @@ export default function Nav() {
               className={classNames({
                 [css.navListItem]: isHome,
                 [css.navListItemHeader]: !isHome,
-                [css.active]: !isHome && location.pathname === to, // Добавляем активный класс, если путь совпадает
+                [css.active]: !isHome && location.pathname === to,
               })}
             >
               {label}

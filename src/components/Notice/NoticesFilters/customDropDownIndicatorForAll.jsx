@@ -21,12 +21,3 @@ export default function CustomDropdownIndicator(props) {
     </components.DropdownIndicator>
   );
 }
-
-//   <span
-//     style={{
-//       transform: menuIsOpen ? "rotate(180deg)" : "rotate(0deg)",
-//       transition: "transform 0.2s ease",
-//     }}
-//   >
-//     ▼ {/* Иконка стрелки */}
-//   </span>
