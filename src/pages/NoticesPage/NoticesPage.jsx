@@ -27,10 +27,17 @@ export default function NoticesPage() {
     sort: "",
   });
 
+  const isMounted = useRef(false);
+
   useEffect(() => {
-    if (prevFavoritesLength.current === 0 && favoritesNotices.length > 0) {
-      setCongratsModalOpen(true);
+    if (isMounted.current) {
+      if (prevFavoritesLength.current < favoritesNotices.length) {
+        setCongratsModalOpen(true);
+      }
+    } else {
+      isMounted.current = true;
     }
+
     prevFavoritesLength.current = favoritesNotices.length;
   }, [favoritesNotices.length]);
 
