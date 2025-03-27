@@ -44,7 +44,6 @@ export default function NoticesPage() {
   const closeCongratsModal = () => setCongratsModalOpen(false);
 
   const handleFilterChange = (newFilters) => {
-    console.log("New filters:", newFilters);
     setFilters(newFilters);
     setCurrentPage(1);
   };
