@@ -11,7 +11,12 @@ export default function NewsItem({
       <p className={css.newsItemText}>{text}</p>
       <div className={css.wrapContainer}>
         <p className={css.newsItemDate}>{formatDateWithSlash(date)}</p>
-        <Link className={css.newsItemLink} to={url}>
+        <Link
+          className={css.newsItemLink}
+          to={url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Read more
         </Link>
       </div>

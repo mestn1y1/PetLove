@@ -42,7 +42,12 @@ export default function FriendsItem({
                   {email}
                 </a>
               ) : (
-                <a href={url} className={css.friendsItemEmailLink}>
+                <a
+                  href={url}
+                  className={css.friendsItemEmailLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   website only
                 </a>
               )}
@@ -52,11 +57,21 @@ export default function FriendsItem({
             <p className={css.friendsItemContactInfoText}>
               Address:
               {address ? (
-                <a href={addressUrl} className={css.friendsItemEmailLink}>
+                <a
+                  href={addressUrl}
+                  className={css.friendsItemEmailLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {address}
                 </a>
               ) : (
-                <a href={url} className={css.friendsItemEmailLink}>
+                <a
+                  href={url}
+                  className={css.friendsItemEmailLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   website only
                 </a>
               )}
